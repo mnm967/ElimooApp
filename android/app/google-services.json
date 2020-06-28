@@ -1,0 +1,162 @@
+{
+  "project_info": {
+    "project_number": "545261170400",
+    "firebase_url": "https://kdassistant-bb21d.firebaseio.com",
+    "project_id": "kdassistant-bb21d",
+    "storage_bucket": "kdassistant-bb21d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:545261170400:android:f1547bd1a88fbb8b5f6a85",
+        "android_client_info": {
+          "package_name": "com.elimoo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "545261170400-ds90jqeu1l70tasft8h0hgf8hrfpfis1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.elimoo",
+            "certificate_hash": "e2815b828fd2ce52de89b5e1ac0783553b4a8637"
+          }
+        },
+        {
+          "client_id": "545261170400-u6hu7jnpdjcfd19pc5tebnmo26lodmdo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.elimoo",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "545261170400-1l1oj2k261aq8jetu8m4jqb2nj4k1p8c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.elimoo",
+            "certificate_hash": "a6b90774510c69b92cbcc5bbab32571de6859498"
+          }
+        },
+        {
+          "client_id": "545261170400-fb3fnsvunm13043rr3noifmeck6e1vua.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6N30rdKsf3YGpAWfZO8bw3H5e2MMKY2I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "545261170400-fb3fnsvunm13043rr3noifmeck6e1vua.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:545261170400:android:ebe70bded3ae111e",
+        "android_client_info": {
+          "package_name": "com.mnm.kdassistant.lite"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "545261170400-9a1cnk79t0s79rgclc4o3reen04ipmtp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mnm.kdassistant.lite",
+            "certificate_hash": "a6b90774510c69b92cbcc5bbab32571de6859498"
+          }
+        },
+        {
+          "client_id": "545261170400-9goktfri2r25uqa29pv695cc8q7mdaq1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mnm.kdassistant.lite",
+            "certificate_hash": "ca0c44803cf1323b9e3d0b97ed7d7b8802b344f3"
+          }
+        },
+        {
+          "client_id": "545261170400-d0om2qpvmplbler2mnlpp6k3rgf8rqs3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mnm.kdassistant.lite",
+            "certificate_hash": "6e831d9e77c67596732e91c9e1871a80f2552c72"
+          }
+        },
+        {
+          "client_id": "545261170400-fb3fnsvunm13043rr3noifmeck6e1vua.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6N30rdKsf3YGpAWfZO8bw3H5e2MMKY2I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "545261170400-fb3fnsvunm13043rr3noifmeck6e1vua.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:545261170400:android:073a4cefc296e926",
+        "android_client_info": {
+          "package_name": "com.mnm.kdassistant.pro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "545261170400-ksjmrvh19ckdnjhpoh7giqqnvv5apt3o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mnm.kdassistant.pro",
+            "certificate_hash": "afe5e289953db8a0d6119773a8abdf80b68f377a"
+          }
+        },
+        {
+          "client_id": "545261170400-mp7mpih4si5sourf2nqgsidjc148amna.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mnm.kdassistant.pro",
+            "certificate_hash": "6e831d9e77c67596732e91c9e1871a80f2552c72"
+          }
+        },
+        {
+          "client_id": "545261170400-fb3fnsvunm13043rr3noifmeck6e1vua.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6N30rdKsf3YGpAWfZO8bw3H5e2MMKY2I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "545261170400-fb3fnsvunm13043rr3noifmeck6e1vua.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

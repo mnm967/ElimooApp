@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Elimoo</string>
+    <string name="facebook_app_id">2488978197872320</string>
+    <string name="fb_login_protocol_scheme">fb2488978197872320</string>
+</resources>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>545261170400-ksi42lc5jsg82iokp5735d9f6ko3ians.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.545261170400-ksi42lc5jsg82iokp5735d9f6ko3ians</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>545261170400-ds90jqeu1l70tasft8h0hgf8hrfpfis1.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDUVQWAoe42k4S0AQVsI0I6F2zfTahm7dw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>545261170400</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.mnm.elimoo</string>
+	<key>PROJECT_ID</key>
+	<string>kdassistant-bb21d</string>
+	<key>STORAGE_BUCKET</key>
+	<string>kdassistant-bb21d.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:545261170400:ios:33d79e152c0e2b7a5f6a85</string>
+	<key>DATABASE_URL</key>
+	<string>https://kdassistant-bb21d.firebaseio.com</string>
+</dict>
+</plist>
