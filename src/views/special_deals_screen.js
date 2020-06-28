@@ -50,7 +50,6 @@ class Item extends React.Component {
 
     return (
       <>
-      {Platform.OS === 'ios' && <View style={{width: '100%', height: 20, backgroundColor: '#FF9E02'}} />}
       <View style={{padding: 8}}>
         <Card elevation={3} style={styles.deal_item_holder} onPress={() => {this.props.openDeal(item)}}>
         {isFav && <TouchableOpacity style={styles.deal_like_icon_view_active} onPress={() => {
@@ -81,7 +80,7 @@ class Item extends React.Component {
                 <FastImage style={{zIndex: 8, resizeMode: 'cover', width: '100%', height: 48}} source={{uri: item['store_logo_url']}}/>
               </View>
               <View style={{width: "70%", paddingTop: 8, justifyContent: 'center'}}>
-                <Text style={{textAlign: 'right', fontWeight: 'bold', color: '#000', fontSize: 12, height: 36}} numberOfLines={2}>{item['name']}</Text>
+                <Text style={{textAlign: 'right', fontFamily: 'Nunito-Bold', color: '#000', fontSize: 12, height: 36}} numberOfLines={2}>{item['name']}</Text>
               </View>
             </View>
           </Card.Content>
@@ -109,6 +108,8 @@ class SpecialDealsScreen extends React.Component {
   render() {
     const { goBack } = this.props.navigation;
     return (
+      <>
+      {Platform.OS === 'ios' && <View style={{width: '100%', height: 20, backgroundColor: '#FF9E02'}} />}
       <View style={styles.MainViewHolder}>
         <StatusBar barStyle="light-content" backgroundColor="#FF9E02"/>
         <NavigationEvents onWillFocus={() => {
@@ -140,6 +141,7 @@ class SpecialDealsScreen extends React.Component {
         </ScrollView>
         </View>
       </View>
+      </>
     );
   }
 }
@@ -250,7 +252,7 @@ const styles = StyleSheet.create({
   },
   category_title: {
     fontSize: 32,
-    fontWeight: 'bold',
+    fontFamily: 'Nunito-Bold',
     paddingTop: 32,
     paddingBottom: 16,
     paddingStart: 78

@@ -240,9 +240,7 @@ class SignUp extends React.Component {
        {Platform.OS === 'ios' && <View style={{width: '100%', height: 20, backgroundColor: '#FF9E02'}} />}
        <StatusBar backgroundColor="#FF9E02" barStyle="light-content" />
 
-          {this.state.is_skip_visibile && <TouchableOpacity onPress={() => this.loginGuest()} style={{position: 'absolute', right: 0, zIndex: 999, bottom: 0, paddingEnd: 32, paddingBottom: 24, flex: 1}}>
-            <Text style={{fontSize: 16, fontFamily: 'Nunito-Regular',}}>Skip</Text>
-          </TouchableOpacity>}
+          
           <PaperProvider>
         <View style={{width: '100%', height: '100%', flex: 1}}>
           
@@ -345,6 +343,9 @@ class SignUp extends React.Component {
                 </TouchableOpacity>
               </View>
             </View>
+            {this.state.is_skip_visibile && <TouchableOpacity onPress={() => this.loginGuest()} style={{right: 0, zIndex: 999, bottom: 0, paddingTop: 24, paddingBottom: 64, flex: 1}}>
+            <Text style={{fontSize: 16, textAlign: 'center', fontFamily: 'Nunito-Regular',}}>Skip</Text>
+          </TouchableOpacity>}
           </KeyboardAwareScrollView>
           </View>
           </PaperProvider>

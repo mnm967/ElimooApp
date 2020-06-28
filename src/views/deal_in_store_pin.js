@@ -137,6 +137,7 @@ class DealInStorePin extends Component
               if(Platform.OS != 'ios') StatusBar.setTranslucent(true);
             }} />
             <View style = { styles.container }>
+              <KeyboardAvoidingView behavior='position'>
                 <KeyboardAwareScrollView
                     contentContainerStyle = {{ paddingTop: HEADER_MAX_HEIGHT }}
                     scrollEventThrottle = { 16 }
@@ -144,7 +145,7 @@ class DealInStorePin extends Component
                       [{ nativeEvent: { contentOffset: { y: this.scrollYAnimatedValue }}}]
                 )}>
                     <View style={styles.top_view_holder}>
-                      <View style={{width: '100%', position: 'absolute'}}>
+                      <View style={{width: '100%', zIndex: 1000, position: 'absolute'}}>
                         <TouchableOpacity onPress={() => {goBack(null); goBack(null);}}>
                             <Card onPress={() => {goBack(null); goBack(null);}} elevation={5} style={{width: 48, height: 48, alignItems: 'center', justifyContent: 'center', borderRadius: 1000, margin: 4}}>
                               <View style={styles.close_card}>
@@ -182,19 +183,19 @@ class DealInStorePin extends Component
                       </View>
                       <Text style={{marginTop: 32, fontSize: 16, textAlign: 'center', fontFamily: 'Nunito-SemiBold',}}>Enter the Elimoo In-Store Pin</Text>
                 </KeyboardAwareScrollView>
-                <Animated.View style = {[ styles.animatedHeader, { height: headerHeight, backgroundColor: headerBackgroundColor } ]}>
+                <Animated.View style = {[ styles.animatedHeader, { marginTop: -20, height: headerHeight, backgroundColor: headerBackgroundColor } ]}>
                     <FastImage style={{height: '100%', width: '100%', resizeMode: 'cover'}} source={{uri: this.props.deal['image_url']}}>
                     </FastImage>
                     <Animated.View style={{position: 'absolute', backgroundColor: headerBackgroundColor, top: 0, right: 0, left: 0, bottom: 0}}> 
                     </Animated.View>
                     <View style={{position: 'absolute', width: d.width-32, height: '100%'}}>
-                      <Card onPress={() => { goBack();}} elevation={5} style={{width: 36, height: 36, borderRadius: 1000,  marginTop: 42, position: 'absolute'}}>
-                        <TouchableOpacity>
+                    <TouchableOpacity onPress={() => { goBack();}}>
+                      <Card elevation={5} style={{width: 36, height: 36, borderRadius: 1000,  marginTop: 42, position: 'absolute'}}> 
                           <View style={{width: 36, height: 36, alignItems: 'center', justifyContent: 'center', borderRadius: 1000}}>
-                            <Icon name="chevron-left" size={32} color="#424242" />
+                            <Icon name="chevron-left" size={36} color="#424242" />
                           </View>
-                        </TouchableOpacity>
                       </Card>
+                        </TouchableOpacity>
                       {this.props.deal['deal_type'] == "Percentage Discount" && <View style={styles.percent_view}>
                     <Text style={{color: '#fff', fontFamily: 'Nunito-Bold', textAlign: 'center'}}>{this.props.deal['percentage']}%</Text>
                         </View>}
@@ -203,6 +204,7 @@ class DealInStorePin extends Component
                         </View>}
                     </View>
                 </Animated.View> 
+                </KeyboardAvoidingView>
             </View>
             </>
         );

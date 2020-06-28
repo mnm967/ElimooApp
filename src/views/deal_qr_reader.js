@@ -57,7 +57,7 @@ class DealQRReader extends Component {
                 <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', marginStart: 16, marginTop: 72}}>
                 <Card onPress={() => { goBack(null);}} elevation={5} style={{width: 36, height: 36, borderRadius: 1000, position: 'absolute', zIndex: 999}}>
                   <View style={{width: 36, height: 36, alignItems: 'center', justifyContent: 'center', borderRadius: 1000}}>
-                    <Icon name="chevron-left" size={32} color="#424242" />
+                    <Icon name="chevron-left" size={36} color="#424242" />
                   </View>
               </Card>
               <Text style={styles.text}>Scan the In Store Elimoo QR Code</Text>

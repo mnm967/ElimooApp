@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ScrollView, Dimensions, Image, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { ScrollView, Dimensions, Image, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View, Keyboard } from 'react-native';
 import Modal, { ModalContent, SlideAnimation } from 'react-native-modals';
 import { Button, Provider as PaperProvider } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -57,6 +57,7 @@ class ForgotPassword extends React.Component {
     this.setState({ errorModalVisibility: false });
   }
   onRequestClick = () => {
+    Keyboard.dismiss();
     var email = this.state.usernameText.trim().toLowerCase();
 
     var emailCheck = false;

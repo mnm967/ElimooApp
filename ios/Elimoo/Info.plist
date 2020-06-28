@@ -2,10 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-  <key>FacebookAppID</key>
-  <string>2488978197872320</string>
-  <key>FacebookDisplayName</key>
-  <string>Elimoo</string>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleLightContent</string>
+	<key>FacebookAppID</key>
+	<string>2488978197872320</string>
+	<key>FacebookDisplayName</key>
+	<string>Elimoo</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -32,7 +34,7 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>com.googleusercontent.apps.545261170400-ksi42lc5jsg82iokp5735d9f6ko3ians</string>
-        <string>fb2488978197872320</string>
+				<string>fb2488978197872320</string>
 			</array>
 		</dict>
 	</array>
@@ -56,7 +58,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Allow Elimoo to access your camera.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
+	<string></string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Allow Elimoo to access your Photo Library.</string>
 	<key>UIAppFonts</key>
@@ -110,6 +112,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-  
 </dict>
 </plist>

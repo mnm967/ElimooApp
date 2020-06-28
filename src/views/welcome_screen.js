@@ -104,8 +104,7 @@ class WelcomeScreen extends React.Component {
   render(){
     return (
       <>
-      {Platform.OS === 'ios' && <View style={{width: '100%', height: 20, backgroundColor: '#FF9E02'}} />}
-      <StatusBar backgroundColor="#FF9E02" barStyle="light-content" />
+      <StatusBar backgroundColor="#FF9E02" translucent={true} barStyle="dark-content" />
         <View style={{width: '100%', height: '100%'}}>
         <View style={{overflow: 'hidden', borderRadius: 12}}>
           <FastImage style={{height: '100%', resizeMode: 'cover'}} source={require('../assets/welcome.jpg')}>

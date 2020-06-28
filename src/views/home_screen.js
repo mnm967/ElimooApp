@@ -47,14 +47,15 @@ class MyHomeScreen extends React.Component {
             <FastImage style={{height: 256, resizeMode: 'cover'}} source={{uri: item['image_url']}}>
             </FastImage>
           </View>
+          
           <View style={{position: 'absolute', backgroundColor: '#00000033', top: 0, right: 0, left: 0, bottom: 0, borderRadius: 12}}> 
           </View>
           <View style={{flex: 2, flexDirection: 'row', width: "70%", height: 256, position: 'absolute', bottom: 0, height: 56, margin: 24, paddingBottom: 64}}>
               <Card elevation={10} style={{width: 72, height: 72, paddingTop: 4, justifyContent:'center', alignItems: 'center', backgroundColor: '#fff'}}>
                 <FastImage style={{zIndex: 8, resizeMode: 'cover', width: 64, height: 64}} source={{uri: item['store_logo_url']}}/>
               </Card>
-              <View style={{paddingStart: 16}}>
-                <Text style={{textAlign: 'left', fontFamily: 'Futura Hv BT', fontSize: 24, color: '#fff'}} numberOfLines={2}>{item['name']}</Text>
+              <View style={{paddingStart: 16, height: 64}}>
+                <Text style={{zIndex: 999, fontFamily: 'Futura', fontSize: 24, color: '#fff'}} numberOfLines={2}>{item['name']}</Text>
               </View>
             </View>
         </Card>
@@ -84,7 +85,7 @@ class MyHomeScreen extends React.Component {
           style={{borderRadius: 12, ...StyleSheet.absoluteFillObject}}></LinearGradient>
         </View>
         <View style={{flex: 2, flexDirection: 'row', width: "100%", position: 'absolute', bottom: 0, height: 56, paddingBottom: 64}}>
-            <View>
+            <View style={{height: 64}}>
               <Text style={{fontFamily: 'Nunito-SemiBold', fontSize: 14, color: '#fff', textAlign: 'center', marginStart: 8, marginEnd: 8}}>{item['name']}</Text>
             </View>
           </View>
@@ -276,8 +277,8 @@ class MyHomeScreen extends React.Component {
                       <Card elevation={10} style={{width: 72, height: 72, paddingTop: 1, justifyContent:'center', alignItems: 'center', backgroundColor: '#fff'}}>
                         <FastImage style={{zIndex: 8, resizeMode: 'contain', width: 70, height: 70}} source={{uri: this.props.home_deals.filter((i) => {return i['is_special'] == true})[0]['store_logo_url']}}/>
                       </Card>       
-                      <View style={{paddingStart: 16}}>
-                        <Text style={{textAlign: 'left', fontFamily: 'Futura Hv BT', fontSize: 24, color: '#fff'}}>{this.props.home_deals.filter((i) => {return i['is_special'] == true})[0]['name']}</Text>
+                      <View style={{paddingStart: 16, height: 64}}>
+                        <Text style={{textAlign: 'left', fontFamily: 'Futura', fontSize: 24, color: '#fff'}} numberOfLines={2}>{this.props.home_deals.filter((i) => {return i['is_special'] == true})[0]['name']}</Text>
                       </View>
                     </View>
                 </Card>}

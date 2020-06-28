@@ -59,8 +59,8 @@ class TopTipsScreen extends React.Component {
                         style={{borderRadius: 12, ...StyleSheet.absoluteFillObject}}></LinearGradient>
                       </View>
                       <View style={{flex: 2, flexDirection: 'row', width: "100%", position: 'absolute', bottom: 0, height: 56, paddingBottom: 64}}>
-                          <View>
-                            <Text style={{fontWeight: 'bold', fontSize: 14, color: '#fff', textAlign: 'center', marginStart: 8, marginEnd: 8}}>{item['name']}</Text>
+                          <View style={{height: 64}}>
+                            <Text style={{fontFamily: 'Nunito-SemiBold', fontSize: 14, color: '#fff', textAlign: 'center', marginStart: 8, marginEnd: 8}}>{item['name']}</Text>
                           </View>
                         </View>
                   </Card>
@@ -186,7 +186,7 @@ const styles = StyleSheet.create({
   },
   category_title: {
     fontSize: 32,
-    fontWeight: 'bold',
+    fontFamily: 'Nunito-Bold',
     paddingTop: 32,
     paddingBottom: 16,
     paddingStart: 78

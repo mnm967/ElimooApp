@@ -101,8 +101,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff'
   },
   ViewHolder: {
-    marginStart: 8,
-    marginEnd: 8,
+    paddingStart: 8,
+    paddingEnd: 8,
   },
   buttonText: {
     fontSize: 18,
@@ -121,10 +121,10 @@ const styles = StyleSheet.create({
     paddingBottom: 32
   },
   setting_item: {
-    height: 36,
+    height: 72,
     width: "100%",
-    paddingTop: 32,
-    paddingBottom: 32,
+    paddingTop: 16,
+    paddingBottom: 16,
     paddingStart: 24,
     flexDirection: 'row',
     backgroundColor: '#fff',
@@ -134,10 +134,10 @@ const styles = StyleSheet.create({
     
   },
   contact_setting_item: {
-    height: 36,
+    height: 72,
     width: "100%",
-    paddingTop: 32,
-    paddingBottom: 32,
+    paddingTop: 16,
+    paddingBottom: 16,
     paddingStart: 24,
     flexDirection: 'row',
     backgroundColor: '#fff',
@@ -147,10 +147,10 @@ const styles = StyleSheet.create({
     borderWidth: 2
   },
   logout_setting_item: {
-    height: 36,
+    height: 64,
     width: "100%",
-    paddingTop: 32,
-    paddingBottom: 32,
+    paddingTop: 16,
+    paddingBottom: 16,
     flexDirection: 'row',
     backgroundColor: '#fff',
     marginBottom: 32,
@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
     borderWidth: 2
   },
   setting_text_holder: {
-    height: '100%',
+    height: "100%",
     width: '85%',
     justifyContent: 'center',
   },

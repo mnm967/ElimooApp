@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { NavigationEvents } from 'react-navigation';
 import { connect } from 'react-redux';
 import { setSettingsPushNotificationsEnabled } from '../actions/redux_actions';
+import { requestNotifications } from "react-native-permissions";
 
 
 const d = Dimensions.get("window");
@@ -41,7 +42,14 @@ class SettingsScreen extends React.Component {
                         </View>
                         <View style={styles.setting_icon_holder}>
                           <Switch value={this.props.is_push_notifications_enabled} 
-                                  onValueChange={() => this.props.setSettingsPushNotificationsEnabled(!this.props.is_push_notifications_enabled)}
+                                  onValueChange={() => {
+                                    //if(!this.props.is_push_notifications_enabled) {
+                                    //  requestNotifications(['alert', 'sound']).then(({status, settings}) => {
+                                        // …
+                                    //  });
+                                    //} 
+                                    this.props.setSettingsPushNotificationsEnabled(!this.props.is_push_notifications_enabled)
+                                  }}
                                   color="#FF9E02"/>
                         </View>
                       </View>
@@ -79,10 +87,10 @@ const styles = StyleSheet.create({
     minHeight: d.height,
   },
   setting_item: {
-    height: 36,
+    height: 72,
     width: "100%",
-    paddingTop: 32,
-    paddingBottom: 32,
+    paddingTop: 16,
+    paddingBottom: 16,
     paddingStart: 16,
     paddingEnd: 8,
     flexDirection: 'row',

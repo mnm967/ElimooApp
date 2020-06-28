@@ -99,7 +99,7 @@ class DealCompleteView extends Component
                       [{ nativeEvent: { contentOffset: { y: this.scrollYAnimatedValue }}}]
                 )}>
                     <View style={{ height: 96, marginBottom: 16, marginStart: 16, padding: 8, justifyContent:'center', alignItems: 'center', borderBottomColor: '#BDBDBD4D', borderBottomWidth: 1, flexDirection: 'row'}}>
-                      <View style={{width: '100%', position: 'absolute'}}>
+                      <View style={{width: '100%', zIndex: 1000, position: 'absolute'}}>
                         <TouchableOpacity onPress={() => this.resetStack()}>
                         <Card elevation={5} style={{width: 48, height: 48, alignItems: 'center', justifyContent: 'center', borderRadius: 1000, margin: 4}}>
                               <View style={{width: 48, height: 48, alignItems: 'center', justifyContent: 'center', borderRadius: 1000}}>
@@ -131,7 +131,7 @@ class DealCompleteView extends Component
                       <Card elevation={5} style={{width: 36, height: 36, borderRadius: 1000,  marginTop: 42, position: 'absolute'}}>
                         <TouchableOpacity onPress={() => this.resetStack()}>
                           <View style={{width: 36, height: 36, alignItems: 'center', justifyContent: 'center', borderRadius: 1000}}>
-                            <Icon name="chevron-left" size={32} color="#424242" />
+                            <Icon name="chevron-left" size={36} color="#424242" />
                           </View>
                         </TouchableOpacity>
                       </Card>

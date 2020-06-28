@@ -74,7 +74,8 @@ export const loginUser = (email, password) => {
             password: password
         })
         .then((res) => {
-            console.log("Response: ", res.data['data']);
+            console.log("Response: ", res.data);
+            console.log("AllResponse: ", res);
             if(res.data['status'] == 'success'){
                 dispatch(setUserLoginSuccess(res.data['data']));
             }else{
