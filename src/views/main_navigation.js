@@ -39,7 +39,9 @@ class MainNavigation extends React.Component {
       
       // The promptForPushNotifications function code will show the iOS push notification prompt. We recommend removing the following code and instead using an In-App Message to prompt for notification permission (See step below)
       //TODO Change
-      OneSignal.promptForPushNotificationsWithUserResponse(() => {});
+      OneSignal.promptForPushNotificationsWithUserResponse((permission) => {
+        
+      });
 
       OneSignal.addEventListener('received', this.onReceived);
     }else{

@@ -1,4 +1,3 @@
-import RNDateTimePicker from '@react-native-community/datetimepicker';
 import { format } from 'date-fns';
 import md5 from 'md5';
 import * as React from 'react';
@@ -12,6 +11,7 @@ import ErrorPrompts from '../constants/error_prompts';
 import ErrorModal from '../modals/error_modal';
 import LoadingModal from '../modals/loading_modal';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 
 const d = Dimensions.get("window");
@@ -221,7 +221,7 @@ class SignUp extends React.Component {
     const date = this.state.chosenDateOfBirth;
     const { goBack } = this.props.navigation;
 
-    const onChange = (event, selectedDate) => {
+    const onChange = (selectedDate) => {
       const currentDate = selectedDate || date;
       this.setState({ showDatePicker: false });
       this.setState({ chosenDateOfBirth: currentDate });
@@ -233,7 +233,7 @@ class SignUp extends React.Component {
     return (
       <>
       {this.state.showDatePicker && (
-        <RNDateTimePicker mode="date" value={date} maximumDate={date} onChange={onChange}/>
+        <DateTimePickerModal isVisible={true} mode="date" value={date} maximumDate={new Date()} onConfirm={onChange} onCancel={() => this.setState({ showDatePicker: false })}/>
       )}
       <LoadingModal onTouchOutside={this.onLoadModalTouchOutside} visible={this.props.register_loading} text="This Will Only Take a Second..."/>
        <ErrorModal visible={this.state.errorModalVisibility} title={this.state.errorModalTitle} buttonText={this.state.errorModalButtonText} text={this.state.errorModalText} onTouchOutside={this.onErrorModalTouchOutside} onButtonClick={this.state.onErrorButtonClick}/>

@@ -227,13 +227,13 @@ class DealStorePassword extends Component
                 )}>
                     <View style={styles.top_view_holder}>
                       <View style={{width: '100%', zIndex: 1000, position: 'absolute'}}>
-                        <TouchableOpacity onPress={() => {goBack(null); goBack(null);}}>
                             <Card elevation={5} style={{width: 48, height: 48, borderRadius: 1000, margin: 4}}>
+                              <TouchableOpacity onPress={() => {goBack(null); goBack(null);}}>
                               <View style={styles.close_card}>
                                 <Icon name="close" size={32} color="#FF3A3A" />
                               </View>
-                            </Card>
                             </TouchableOpacity>
+                            </Card>
                         <TouchableOpacity onPress={() => {this.showAccountModal()}} style={{position: 'absolute', right: 0, marginEnd: 16}}>
                             <Card elevation={5} style={{width: 48, height: 48, alignItems: 'center', justifyContent: 'center', borderRadius: 1000, margin: 4}}>
                               <View style={styles.close_card}>

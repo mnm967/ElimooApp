@@ -104,14 +104,13 @@ class DealView extends Component
                     <Animated.View style={{position: 'absolute', backgroundColor: headerBackgroundColor, top: 0, right: 0, left: 0, bottom: 0}}> 
                     </Animated.View>
                     <View style={{position: 'absolute', width: d.width-32, height: '100%'}}>
-                    <TouchableOpacity onPress={() => { if(Platform.OS != 'ios') StatusBar.setBackgroundColor('#FF9E02'); if(Platform.OS != 'ios') StatusBar.setTranslucent(false); goBack();}}>
                       <Card elevation={5} style={{width: 36, height: 36, borderRadius: 1000,  marginTop: 42, position: 'absolute'}}>
-                        
+                        <TouchableOpacity onPress={() => { if(Platform.OS != 'ios') StatusBar.setBackgroundColor('#FF9E02'); if(Platform.OS != 'ios') StatusBar.setTranslucent(false); goBack();}}>                        
                           <View style={{width: 36, height: 36, alignItems: 'center', justifyContent: 'center', borderRadius: 1000}}>
                             <Icon name="chevron-left" size={36} color="#424242" />
                           </View>
-                      </Card>
                         </TouchableOpacity>
+                      </Card>
                         {this.props.deal['deal_type'] == "Percentage Discount" && <View style={styles.percent_view}>
                     <Text style={{color: '#fff', fontFamily: 'Nunito-Bold', textAlign: 'center'}}>{this.props.deal['percentage']}%</Text>
                         </View>}

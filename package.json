@@ -36,6 +36,7 @@
     "react-native-image-crop-picker": "^0.30.0",
     "react-native-keyboard-aware-scroll-view": "^0.9.1",
     "react-native-linear-gradient": "^2.5.6",
+    "react-native-modal-datetime-picker": "^8.7.1",
     "react-native-modals": "^0.19.9",
     "react-native-navigation-bar-color": "^2.0.1",
     "react-native-onesignal": "^3.7.3",
