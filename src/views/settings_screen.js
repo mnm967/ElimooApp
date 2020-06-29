@@ -1,5 +1,5 @@
 import React from "react";
-import { Dimensions, StatusBar, StyleSheet, Text, View, ScrollView, TouchableOpacity, Platform } from "react-native";
+import { Dimensions, StatusBar, StyleSheet, Text, View, ScrollView, TouchableOpacity, Platform, PushNotificationIOS } from "react-native";
 import { Card, Switch } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { NavigationEvents } from 'react-navigation';
@@ -43,11 +43,13 @@ class SettingsScreen extends React.Component {
                         <View style={styles.setting_icon_holder}>
                           <Switch value={this.props.is_push_notifications_enabled} 
                                   onValueChange={() => {
-                                    //if(!this.props.is_push_notifications_enabled) {
-                                    //  requestNotifications(['alert', 'sound']).then(({status, settings}) => {
-                                        // …
-                                    //  });
-                                    //} 
+                                    if(!this.props.is_push_notifications_enabled == true && Platform.OS === 'ios') {
+                                     requestNotifications(['alert', 'badge', 'sound']).then(({status, settings}) => {
+                                        if(settings.alert == false){
+                                          PushNotificationIOS.requestPermissions(['alert', 'badge', 'sound']);
+                                        }
+                                     });
+                                    } 
                                     this.props.setSettingsPushNotificationsEnabled(!this.props.is_push_notifications_enabled)
                                   }}
                                   color="#FF9E02"/>

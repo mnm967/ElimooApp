@@ -60,51 +60,14 @@ class WelcomeScreen extends React.Component {
       }
     }
   }
-  static getDerivedStateFromProps(nextProps, nextState) {
-    if(nextProps.login_success == true || nextProps.register_success == true){
-      var user = nextProps.user;
-      if(user['is_approved'] == true){
-        //var nextRoute = 'MainAppScreen';
-        //this.props.navigation.state.params.mainNavigation(nextRoute)
-      }else{
-        //var nextRoute = getLoginRoute(user);
-        //nextProps.navigation.navigate(nextRoute);
-      }
-    }else if(nextProps.login_error != null){
-      var error = nextProps.login_error;
-      var errorTitleText = 'Oh No! Something Went Wrong';
-      var errorOutputText = '';
-
-      if(error == 'network_error'){
-        errorOutputText = ErrorPrompts.NETWORK_ERROR;
-      }else if(error == 'unknown_error'){
-        errorOutputText = ErrorPrompts.UNKNOWN_ERROR;
-      }else if(error == 'login_incorrect_data'){
-        errorOutputText = ErrorPrompts.LOGIN_INCORRECT_DATA;
-      }else if(error == 'facebook_email_error'){
-        errorOutputText = "Your Facebook Account must have an email linked to it.";
-      }
-
-      nextProps.clearLoginError();
-
-      return {
-        errorModalTitle: errorTitleText, 
-        errorModalText: errorOutputText,
-        errorModalVisibility: true,
-        errorModalButtonText: 'Try Again',
-        loadModalVisibility: nextProps.login_loading
-      }
-    }
-
-    return { loadModalVisibility: nextProps.login_loading};
-  }
   state = {
 
   };
   render(){
     return (
       <>
-      <StatusBar backgroundColor="#FF9E02" translucent={true} barStyle="dark-content" />
+      {Platform.OS === 'android' && <StatusBar backgroundColor="#FF9E02" barStyle="light-content" />}
+      {Platform.OS === 'ios' && <StatusBar backgroundColor="transparent" barStyle="dark-content" />}
         <View style={{width: '100%', height: '100%'}}>
         <View style={{overflow: 'hidden', borderRadius: 12}}>
           <FastImage style={{height: '100%', resizeMode: 'cover'}} source={require('../assets/welcome.jpg')}>

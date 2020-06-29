@@ -155,21 +155,8 @@ class Login extends React.Component {
           this.props.navigation.dispatch(resetAction);
         });
       }
-    }
-  }
-
-  static getDerivedStateFromProps(nextProps, nextState) {
-    if(nextProps.login_success == true || nextProps.register_success == true){
-      var user = nextProps.user;
-      if(user['is_approved'] == true){
-        //var nextRoute = 'MainAppScreen';
-        //this.props.navigation.state.params.mainNavigation(nextRoute)
-      }else{
-        //var nextRoute = getLoginRoute(user);
-        //nextProps.navigation.navigate(nextRoute);
-      }
-    }else if(nextProps.login_error != null){
-      var error = nextProps.login_error;
+    }else if(this.props.login_error != null){
+      var error = this.props.login_error;
       var errorTitleText = 'Oh No! Something Went Wrong';
       var errorOutputText = '';
 
@@ -183,18 +170,9 @@ class Login extends React.Component {
         errorOutputText = "Your Facebook Account must have an email linked to it.";
       }
 
-      nextProps.clearLoginError();
-
-      return {
-        errorModalTitle: errorTitleText, 
-        errorModalText: errorOutputText,
-        errorModalVisibility: true,
-        errorModalButtonText: 'Try Again',
-        loadModalVisibility: nextProps.login_loading
-      }
+      this.showErrorModal(errorTitleText, errorOutputText, "Try Again", this.onErrorModalTouchOutside);
+      this.props.clearLoginError();
     }
-
-    return { loadModalVisibility: nextProps.login_loading};
   }
 
   changePasswordVisibility = () => {
@@ -289,7 +267,7 @@ class Login extends React.Component {
     return (
       <>
       <LoadingModal onTouchOutside={this.onLoadModalTouchOutside} visible={this.state.facebookModalVisibility} text="Connecting to Facebook..."/>
-      <LoadingModal onTouchOutside={this.onLoadModalTouchOutside} visible={this.state.loadModalVisibility} text={this.state.loadModalText}/>
+      <LoadingModal onTouchOutside={this.onLoadModalTouchOutside} visible={this.props.login_loading} text={this.state.loadModalText}/>
       <ErrorModal visible={this.state.errorModalVisibility} 
                   title={this.state.errorModalTitle} 
                   buttonText={this.state.errorModalButtonText} 
