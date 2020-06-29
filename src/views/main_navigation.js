@@ -7,7 +7,7 @@ import { format } from 'date-fns';
 import { BottomNavigation } from 'react-native-paper';
 import { NavigationEvents } from 'react-navigation';
 import { connect } from 'react-redux';
-import { setCurrentActiveDeal } from '../actions/redux_actions';
+import { setCurrentActiveDeal, setSettingsPushNotificationsEnabled } from '../actions/redux_actions';
 import DropDownHolder from '../util/DropDownHandler';
 import { AccountScreen } from './account_screen';
 import { FavouritesScreen } from './favourites_screen';
@@ -37,11 +37,13 @@ class MainNavigation extends React.Component {
       OneSignal.init("9986f240-b0ac-463b-816d-8ff06175b69b", {kOSSettingsKeyAutoPrompt : false, kOSSettingsKeyInAppLaunchURL: false, kOSSettingsKeyInFocusDisplayOption:2});
       OneSignal.inFocusDisplaying(2); // Controls what should happen if a notification is received while the app is open. 2 means that the notification will go directly to the device's notification center.
       
-      // The promptForPushNotifications function code will show the iOS push notification prompt. We recommend removing the following code and instead using an In-App Message to prompt for notification permission (See step below)
-      //TODO Change
-      OneSignal.promptForPushNotificationsWithUserResponse((permission) => {
-        
-      });
+      if(Platform.OS === 'ios'){
+        OneSignal.promptForPushNotificationsWithUserResponse((permission) => {
+          if(permission == false){
+            this.props.setSettingsPushNotificationsEnabled(false);
+          }
+        });
+      }
 
       OneSignal.addEventListener('received', this.onReceived);
     }else{
@@ -305,6 +307,7 @@ const mapStateToProps = state => ({
   
 const mapDispatchToProps = {
   setCurrentActiveDeal,
+  setSettingsPushNotificationsEnabled
 }
   
 export default connect(mapStateToProps, mapDispatchToProps)(MainNavigation);
