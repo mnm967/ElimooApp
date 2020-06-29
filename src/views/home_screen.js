@@ -1,5 +1,5 @@
 import React from "react";
-import { Dimensions, FlatList, ScrollView, LayoutAnimation, Linking, RefreshControl, StatusBar, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, UIManager, View } from "react-native";
+import { Dimensions, FlatList, ScrollView, LayoutAnimation, Linking, RefreshControl, StatusBar, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, UIManager, View, Platform } from "react-native";
 import FastImage from 'react-native-fast-image';
 import LinearGradient from 'react-native-linear-gradient';
 import { Card } from 'react-native-paper';
@@ -12,7 +12,7 @@ import DropDownHolder from '../util/DropDownHandler';
 import NotificationHandler from "../util/NotificationHandler";
 
 const d = Dimensions.get("window");
-
+var font = Platform.OS === 'ios' ? "Futura":"Futura Hv BT";
 class MyHomeScreen extends React.Component {
   componentDidMount(){
     NotificationHandler.setNotificationHandler(() => {
@@ -55,7 +55,7 @@ class MyHomeScreen extends React.Component {
                 <FastImage style={{zIndex: 8, resizeMode: 'cover', width: 64, height: 64}} source={{uri: item['store_logo_url']}}/>
               </Card>
               <View style={{paddingStart: 16, height: 64}}>
-                <Text style={{zIndex: 999, fontFamily: 'Futura', fontSize: 24, color: '#fff'}} numberOfLines={2}>{item['name']}</Text>
+                <Text style={{zIndex: 999, fontFamily: font, fontSize: 24, color: '#fff'}} numberOfLines={2}>{item['name']}</Text>
               </View>
             </View>
         </Card>
@@ -278,7 +278,7 @@ class MyHomeScreen extends React.Component {
                         <FastImage style={{zIndex: 8, resizeMode: 'contain', width: 70, height: 70}} source={{uri: this.props.home_deals.filter((i) => {return i['is_special'] == true})[0]['store_logo_url']}}/>
                       </Card>       
                       <View style={{paddingStart: 16, height: 64}}>
-                        <Text style={{textAlign: 'left', fontFamily: 'Futura', fontSize: 24, color: '#fff'}} numberOfLines={2}>{this.props.home_deals.filter((i) => {return i['is_special'] == true})[0]['name']}</Text>
+                        <Text style={{textAlign: 'left', fontFamily: font, fontSize: 24, color: '#fff'}} numberOfLines={2}>{this.props.home_deals.filter((i) => {return i['is_special'] == true})[0]['name']}</Text>
                       </View>
                     </View>
                 </Card>}
