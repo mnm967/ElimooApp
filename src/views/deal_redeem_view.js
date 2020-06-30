@@ -67,14 +67,18 @@ class DealRedeemView extends Component
                     </View>
                     <View style={{padding: 16}}>
                       <Text style={styles.deal_title}>{this.props.deal['name']}</Text>
-                      <Text style={{marginTop: 32, fontSize: 16, textAlign: 'center', fontFamily: 'Nunito-Regular',}}>Redemption Method</Text>
-                      <View style={{flex: 1, flexDirection: 'row', alignSelf: 'center'}}>
-                        <TouchableOpacity onPress={() => navigate('DealInStorePin')}>     
-                          <FastImage style={{zIndex: 8, resizeMode: 'contain', width: 136, height: 136, margin: 16}} source={require('../assets/redeem-in-store-pin.jpg')}/>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigate('DealQRReader')}>     
-                          <FastImage style={{zIndex: 8, resizeMode: 'contain', width: 136, height: 136, margin: 16}} source={require('../assets/redeem-qr-code.jpg')}/>
-                        </TouchableOpacity>
+                      <Text style={{marginTop: 32, fontSize: 16, textAlign: 'center', fontFamily: 'Nunito-SemiBold',}}>Redemption Method</Text>
+                      <View style={{flex: 1, flexDirection: 'row', alignSelf: 'center', paddingTop: 36}}>
+                        <Card elevation={6} style={{borderRadius: 12, marginEnd: 18}}>
+                          <TouchableOpacity style={{width: 136, height: 136, padding: 18}} onPress={() => navigate('DealInStorePin')}>
+                            <FastImage style={{zIndex: 8, resizeMode: 'contain', width: '100%', height: '100%',}} source={require('../assets/redeem-in-store-pin.png')}/>
+                          </TouchableOpacity>
+                        </Card>
+                        <Card elevation={6} style={{borderRadius: 12, marginStart: 18}}>
+                          <TouchableOpacity style={{width: 136, height: 136, padding: 24}} onPress={() => navigate('DealQRReader')}>
+                            <FastImage style={{zIndex: 8, resizeMode: 'contain', width: '100%', height: '100%',}} source={require('../assets/redeem-qr-code.png')}/>
+                          </TouchableOpacity>
+                        </Card>
                       </View>
                     </View>
                 </ScrollView>
@@ -114,7 +118,7 @@ const styles = StyleSheet.create(
 
     deal_title: {
       fontSize: 24,
-      fontFamily: 'Nunito-Bold',
+      fontFamily: 'NunitoSans-Black',
       textAlign: 'center'
     },
 

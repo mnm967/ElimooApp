@@ -96,7 +96,7 @@ class SignUpInstitutionScreen extends React.Component {
                   <Icon name="chevron-left" size={24} color="#fff" />
                 </View>
               </TouchableOpacity>}
-              <Text style={{fontFamily: 'Nunito-SemiBold', fontSize: 26, color: '#fff', width: '85%', textAlign: 'center', paddingStart: 8}}>
+              <Text style={{fontFamily: 'NunitoSans-Black', fontSize: 26, color: '#fff', width: '85%', textAlign: 'center', paddingStart: 8}}>
                   Where do you Study?
               </Text>
               <TouchableOpacity style={{width: '15%',}}>

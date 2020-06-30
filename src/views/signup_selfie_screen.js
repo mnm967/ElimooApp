@@ -140,7 +140,7 @@ class SignUpSelfieScreen extends React.Component {
                   <Icon name="chevron-left" size={24} color="#fff" />
                 </View>
               </TouchableOpacity>}
-              <Text style={{fontFamily: 'Nunito-Bold', fontSize: 26, color: '#fff', width: '85%', textAlign: 'center', paddingStart: 24}}>
+              <Text style={{fontFamily: 'NunitoSans-Black', fontSize: 26, color: '#fff', width: '85%', textAlign: 'center', paddingStart: 24}}>
                   Let's Take a Selfie
               </Text>
               <TouchableOpacity style={{width: '15%',}}>

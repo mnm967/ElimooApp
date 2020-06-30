@@ -29,9 +29,10 @@ class TopTipsScreen extends React.Component {
     const { goBack } = this.props.navigation;
     return (
       <>
-      {Platform.OS === 'ios' && <View style={{width: '100%', height: 20, backgroundColor: '#FF9E02'}} />}
+      {Platform.OS === 'ios' && <View style={{width: '100%', height: 24, backgroundColor: 'transparent'}} />}
+       {Platform.OS === 'ios' &&<StatusBar backgroundColor="transparent" barStyle="dark-content" />}
+       {Platform.OS === 'android' &&<StatusBar backgroundColor="#FF9E02" barStyle="light-content" />}
       <View style={styles.MainViewHolder}>
-        <StatusBar barStyle="light-content" backgroundColor="#FF9E02"/>
         <NavigationEvents onWillFocus={() => {
               if(Platform.OS != 'ios') StatusBar.setBackgroundColor('#FF9E02');
               if(Platform.OS != 'ios') StatusBar.setTranslucent(false);
@@ -186,7 +187,7 @@ const styles = StyleSheet.create({
   },
   category_title: {
     fontSize: 32,
-    fontFamily: 'Nunito-Bold',
+    fontFamily: 'NunitoSans-Black',
     paddingTop: 32,
     paddingBottom: 16,
     paddingStart: 78

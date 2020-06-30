@@ -79,11 +79,12 @@ class WelcomeScreen extends React.Component {
             style={{borderRadius: 0, ...StyleSheet.absoluteFillObject}}></LinearGradient>
           </View>
           <View style={{ height: '100%', width: '100%', position: 'absolute'}}>         
-           <View style={{width: '100%', alignItems: 'center'}}>
-             <FastImage source={require('../assets/elimoo_black_icon.png')} style={{width: 192, height: 192, backgroundColor: 'transparent'}}/>
+           <View style={{width: '100%', alignItems: 'center', paddingTop: 42}}>
+             <FastImage resizeMode="contain" source={require('../assets/elimoo-icon-welcome.png')} style={{width: 192, height: 192, backgroundColor: 'transparent'}}/>
            </View>
           </View>
-          <View style={{width: "100%", position: 'absolute', bottom: 0, height: 156, padding: 16}}>
+          <View style={{width: "100%", position: 'absolute', bottom: 0, height: 236, padding: 16}}>
+            <Text style={{fontFamily: 'NunitoSans-Black', textAlign: 'center', fontSize: 23, paddingBottom: 24, color: '#fff'}}>Welcome to Elimoo</Text>
             <TouchableOpacity onPress={() => this.props.navigation.navigate("SignUp")}>
                   <Button labelStyle={{fontSize: 17, fontFamily: 'Nunito-Bold'}} color='#fff' uppercase={false} style={styles.main_button}>Sign Up</Button>
                 </TouchableOpacity>

@@ -55,7 +55,7 @@ class MyHomeScreen extends React.Component {
                 <FastImage style={{zIndex: 8, resizeMode: 'cover', width: 64, height: 64}} source={{uri: item['store_logo_url']}}/>
               </Card>
               <View style={{paddingStart: 16, height: 64}}>
-                <Text style={{zIndex: 999, fontFamily: font, fontWeight: 'bold', fontSize: 24, color: '#fff'}} numberOfLines={2}>{item['name']}</Text>
+                <Text style={{zIndex: 999, fontFamily: 'NunitoSans-Black', fontSize: 24, color: '#fff'}} numberOfLines={2}>{item['name']}</Text>
               </View>
             </View>
         </Card>
@@ -278,7 +278,7 @@ class MyHomeScreen extends React.Component {
                         <FastImage style={{zIndex: 8, resizeMode: 'contain', width: 70, height: 70}} source={{uri: this.props.home_deals.filter((i) => {return i['is_special'] == true})[0]['store_logo_url']}}/>
                       </Card>       
                       <View style={{paddingStart: 16, height: 64}}>
-                        <Text style={{textAlign: 'left', fontFamily: font, fontWeight: 'bold', fontSize: 24, color: '#fff'}} numberOfLines={2}>{this.props.home_deals.filter((i) => {return i['is_special'] == true})[0]['name']}</Text>
+                        <Text style={{textAlign: 'left', fontFamily: 'NunitoSans-Black',  fontSize: 24, color: '#fff'}} numberOfLines={2}>{this.props.home_deals.filter((i) => {return i['is_special'] == true})[0]['name']}</Text>
                       </View>
                     </View>
                 </Card>}
@@ -483,8 +483,8 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   category_title: {
-    fontSize: 28,
-    fontFamily: 'Nunito-Bold',
+    fontSize: 26,
+    fontFamily: 'NunitoSans-Black',
     paddingTop: 16,
     paddingBottom: 16,
     paddingStart: 12

@@ -275,8 +275,9 @@ class Login extends React.Component {
                   onTouchOutside={this.onErrorModalTouchOutside} 
                   onButtonClick={this.state.onErrorButtonClick}/>
 
-        {Platform.OS === 'ios' && <View style={{width: '100%', height: 20, backgroundColor: '#FF9E02'}} />}
-        <StatusBar backgroundColor="#FF9E02" barStyle="light-content" />
+        {Platform.OS === 'ios' && <View style={{width: '100%', height: 24, backgroundColor: 'transparent'}} />}
+       {Platform.OS === 'ios' &&<StatusBar backgroundColor="transparent" barStyle="dark-content" />}
+       {Platform.OS === 'android' &&<StatusBar backgroundColor="#FF9E02" barStyle="light-content" />}
 
         <View style={{width: '100%', height: '100%'}}>
           {false && <View style={{backgroundColor: '#FF9E02', height: 196}}>         
@@ -288,7 +289,8 @@ class Login extends React.Component {
             <Text style={{fontSize: 16, fontFamily: 'Nunito-Regular',}}>Skip</Text>
           </TouchableOpacity>
           <KeyboardAwareScrollView style={styles.main_container} keyboardShouldPersistTaps="always">
-          <Text style={{textAlign: 'center', fontFamily: 'Nunito-SemiBold', fontSize: 20, color: "#2C2C2C", marginBottom: 24, marginTop: 48}}>Continue with</Text>
+          <Text style={{fontFamily: 'NunitoSans-Black', textAlign: 'center', fontSize: 23, paddingBottom: 16, marginTop: 48}}>Welcome Back!</Text>
+          <Text style={{textAlign: 'center', fontFamily: 'Nunito-SemiBold', fontSize: 20, color: "#2C2C2C", marginBottom: 24, }}>Continue with</Text>
             <View style={{flex: 2, flexDirection: 'row',alignItems: 'center', justifyContent: 'center'}}>
               <Button labelStyle={{fontFamily: 'Nunito-SemiBold'}} onPress={() => this.signinFacebook()} style={[styles.social_button, {marginEnd: 16, marginStart: 4, backgroundColor: '#3B5998'}]} uppercase={false} mode="contained">
                 Facebook

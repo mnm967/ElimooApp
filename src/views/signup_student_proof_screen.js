@@ -142,7 +142,7 @@ class SignUpStudentProofScreen extends React.Component {
                   <Icon name="chevron-left" size={24} color="#fff" />
                 </View>
               </TouchableOpacity>
-              <Text style={{fontFamily: 'Nunito-Bold', fontSize: 26, color: '#fff', width: '75%', textAlign: 'center'}}>
+              <Text style={{fontFamily: 'NunitoSans-Black', fontSize: 26, color: '#fff', width: '75%', textAlign: 'center'}}>
                   Upload Proof
               </Text>
               <TouchableOpacity style={{width: '15%',}}>

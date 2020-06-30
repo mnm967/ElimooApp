@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
   },
   main_title: {
     fontSize: 28,
-    fontFamily: 'Nunito-Bold',
+    fontFamily: 'NunitoSans-Black',
     paddingBottom: 16,
     paddingStart: 12
   },

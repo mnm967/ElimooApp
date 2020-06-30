@@ -183,19 +183,19 @@ class DealInStorePin extends Component
                       </View>
                       <Text style={{marginTop: 32, fontSize: 16, textAlign: 'center', fontFamily: 'Nunito-SemiBold',}}>Enter the Elimoo In-Store Pin</Text>
                 </KeyboardAwareScrollView>
-                <Animated.View style = {[ styles.animatedHeader, { marginTop: -20, height: headerHeight, backgroundColor: headerBackgroundColor } ]}>
+                <Animated.View style = {[ styles.animatedHeader, { marginTop: Platform.OS  == 'ios' ? -20:0, height: headerHeight, backgroundColor: headerBackgroundColor } ]}>
                     <FastImage style={{height: '100%', width: '100%', resizeMode: 'cover'}} source={{uri: this.props.deal['image_url']}}>
                     </FastImage>
                     <Animated.View style={{position: 'absolute', backgroundColor: headerBackgroundColor, top: 0, right: 0, left: 0, bottom: 0}}> 
                     </Animated.View>
                     <View style={{position: 'absolute', width: d.width-32, height: '100%'}}>
-                    <TouchableOpacity onPress={() => { goBack();}}>
                       <Card elevation={5} style={{width: 36, height: 36, borderRadius: 1000,  marginTop: 42, position: 'absolute'}}> 
+                        <TouchableOpacity onPress={() => { goBack();}}>
                           <View style={{width: 36, height: 36, alignItems: 'center', justifyContent: 'center', borderRadius: 1000}}>
                             <Icon name="chevron-left" size={36} color="#424242" />
                           </View>
-                      </Card>
                         </TouchableOpacity>
+                      </Card>
                       {this.props.deal['deal_type'] == "Percentage Discount" && <View style={styles.percent_view}>
                     <Text style={{color: '#fff', fontFamily: 'Nunito-Bold', textAlign: 'center'}}>{this.props.deal['percentage']}%</Text>
                         </View>}
@@ -220,7 +220,7 @@ const styles = StyleSheet.create(
 
     deal_title: {
       fontSize: 24,
-      fontWeight: 'bold',
+      fontFamily: 'NunitoSans-Black',
       textAlign: 'center'
     },
 

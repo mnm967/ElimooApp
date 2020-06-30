@@ -221,8 +221,11 @@ class SearchScreen extends React.Component {
   render() {
     const { goBack } = this.props.navigation;
     return (
+      <>
+      {Platform.OS === 'ios' && <View style={{width: '100%', height: 24, backgroundColor: 'transparent'}} />}
+       {Platform.OS === 'ios' &&<StatusBar backgroundColor="transparent" barStyle="dark-content" />}
+       {Platform.OS === 'android' &&<StatusBar backgroundColor="#FF9E02" barStyle="light-content" />}
       <View style={styles.MainViewHolder}>
-        <StatusBar barStyle="light-content" backgroundColor="#FF9E02"/>
         <NavigationEvents onWillFocus={() => {
               if(Platform.OS != 'ios') StatusBar.setBackgroundColor('#FF9E02');
               if(Platform.OS != 'ios') StatusBar.setTranslucent(false);
@@ -318,6 +321,7 @@ class SearchScreen extends React.Component {
         </ScrollView>
         </View>
       </View>
+      </>
     );
   }
 }

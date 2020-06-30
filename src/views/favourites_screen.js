@@ -263,7 +263,7 @@ const styles = StyleSheet.create({
   },
   category_title: {
     fontSize: 28,
-    fontFamily: 'Nunito-Bold',
+    fontFamily: 'NunitoSans-Black',
     paddingTop: 16,
     paddingBottom: 16,
     paddingStart: 16

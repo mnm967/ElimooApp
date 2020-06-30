@@ -24,7 +24,7 @@ const guest = [
 const norm = [
   { key: 'home', title: 'Home', icon: 'home' },
   { key: 'favourites', title: 'Favourites', icon: 'bookmark-outline' },
-  { key: 'id', title: 'ID', icon: 'account-card-details-outline' },
+  { key: 'id', title: 'ID', icon: (props) => <FastImage {...props} source={require('../assets/endless-icon.png')} resizeMode='contain' style={{height: 25, width: 36,  backgroundColor: 'transparent'}}/> },
   { key: 'notifications', title: 'Notifications', icon: 'email-outline' },
   { key: 'profile', title: 'Profile', icon: 'account-circle' },
 ];
@@ -162,7 +162,7 @@ onReceived(notification) {
             modalAnimation={new SlideAnimation({
                 slideFrom: 'bottom',
             })}>
-            <ModalContent style={{paddingTop: 0, paddingBottom: 0, width: 356}}>
+            <ModalContent style={{paddingTop: 0, paddingBottom: 0, width: 324}}>
             <View style={styles.main_container}>
               <View style={styles.main_holder}>
                 <Card onPress={() => { this.hideAccountModal()}} elevation={5} style={{width: 36, height: 36, borderRadius: 1000,  marginTop: 0, marginEnd: -20, position: 'absolute', zIndex: 999, right: 0}}>
@@ -188,8 +188,9 @@ onReceived(notification) {
             </View>
             </ModalContent>
         </Modal>}
-        {Platform.OS === 'ios' && <View style={{width: '100%', height: 20, backgroundColor: '#FF9E02'}} />}
-        <StatusBar barStyle="light-content" backgroundColor="#FF9E02"/>
+        {Platform.OS === 'ios' && <View style={{width: '100%', height: 24, backgroundColor: 'transparent'}} />}
+       {Platform.OS === 'ios' &&<StatusBar backgroundColor="transparent" barStyle="dark-content" />}
+       {Platform.OS === 'android' &&<StatusBar backgroundColor="#FF9E02" barStyle="light-content" />}
         <NavigationEvents onWillFocus={() => {
           if(Platform.OS != 'ios') StatusBar.setBackgroundColor('#FF9E02');
           if(Platform.OS != 'ios') StatusBar.setTranslucent(false);

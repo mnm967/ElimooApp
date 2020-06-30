@@ -114,8 +114,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   main_title: {
-    fontSize: 28,
-    fontFamily: 'Nunito-Bold',
+    fontSize: 26,
+    fontFamily: 'NunitoSans-Black',
     paddingTop: 16,
     paddingStart: 16,
     paddingBottom: 32

@@ -134,7 +134,7 @@ const styles = StyleSheet.create(
 
     deal_title: {
       fontSize: 24,
-      fontFamily: 'Nunito-Bold',
+      fontFamily: 'NunitoSans-Black',
     },
 
     deal_prompt: {

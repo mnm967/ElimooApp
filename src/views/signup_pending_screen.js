@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Dimensions, Image, StatusBar, StyleSheet, Text, TouchableOpacity, View, Platform } from 'react-native';
+import { Dimensions, Image, StatusBar, StyleSheet, Text, TouchableOpacity, View, Platform, ScrollView } from 'react-native';
 import { Button } from 'react-native-paper';
 import { NavigationActions, StackActions } from 'react-navigation';
 import { connect } from 'react-redux';
@@ -7,6 +7,7 @@ import { clearPendingCheckError, clearPendingCheckSuccess, getPendingStatus, get
 import ErrorPrompts from '../constants/error_prompts';
 import ErrorModal from '../modals/error_modal';
 import LoadingModal from '../modals/loading_modal';
+import FastImage from 'react-native-fast-image';
 
 
 const d = Dimensions.get("window");
@@ -136,11 +137,12 @@ class SignUpPendingScreen extends React.Component {
        <ErrorModal visible={this.state.errorModalVisibility} title={this.state.errorModalTitle} buttonText={this.state.errorModalButtonText} text={this.state.errorModalText} onTouchOutside={this.onErrorModalTouchOutside} onButtonClick={this.state.onErrorButtonClick}/>
        {Platform.OS === 'ios' && <View style={{width: '100%', height: 20, backgroundColor: '#FF9E02'}} />}
       <StatusBar backgroundColor="#FF9E02" barStyle="light-content" />
-        <View style={{width: '100%', height: '100%', backgroundColor: '#FF9E02'}}>
+        <ScrollView style={{width: '100%', height: '100%', backgroundColor: '#FF9E02'}}>
+            <Text style={{fontSize: 21, marginTop: 36, color: '#fff', fontFamily: 'NunitoSans-Black', textAlign: 'center'}}>Patience, patience & patience</Text>
             <View style={styles.main_container}>
               <View>
-                <Image style={{width: 196, height: 196, alignSelf: 'center'}} source={require('../assets/user_card_icon.png')}/>
-                <Text style={{marginTop: 24, fontSize: 24, color: '#fff', fontFamily: 'Nunito-Bold', textAlign: 'center'}}>Patience, Patience & Patience</Text>
+                <FastImage style={{width: 96, height: 96, alignSelf: 'center', marginBottom: 28}} resizeMode='contain' source={require('../assets/elimoo-icon-white.png')}/>
+                <FastImage style={{width: 96, height: 96, alignSelf: 'center', marginBottom: 64}} source={require('../assets/user_card_icon.png')}/>
                 <Text style={{marginTop: 16, fontSize: 15, color: '#fff', fontFamily: 'Nunito-Regular', textAlign: 'center'}}>Your documentation will be reviewed within 48 hours and your account will be verified If everything checks out! Look out for a confirmation email & notification.</Text>
                 <TouchableOpacity onPress={() => {this.onContinueClick()}}>
                   <Button labelStyle={{fontFamily: 'Nunito-SemiBold',}} color='#FF9E02' uppercase={false} style={styles.sub_button}>Continue</Button>
@@ -150,7 +152,7 @@ class SignUpPendingScreen extends React.Component {
                 </TouchableOpacity>
               </View>
             </View>
-        </View>
+        </ScrollView>
       </>
     );
   }
@@ -180,9 +182,9 @@ const styles = StyleSheet.create({
         backgroundColor: 'transparent',
         color: '#fff',
         alignItems: 'center',
-        justifyContent: 'center',
         height: d.height,
-        padding: 24
+        padding: 24,
+        paddingTop: 72,
     }
 });
 

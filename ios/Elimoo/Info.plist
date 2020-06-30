@@ -58,7 +58,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Allow Elimoo to access your camera.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Allow Elimoo to access your Photo Library.</string>
 	<key>UIAppFonts</key>
@@ -97,6 +97,7 @@
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
 		<string>Futura Hv BT.ttf</string>
+		<string>NunitoSans-Black.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

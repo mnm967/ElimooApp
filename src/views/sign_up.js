@@ -237,13 +237,17 @@ class SignUp extends React.Component {
       )}
       <LoadingModal onTouchOutside={this.onLoadModalTouchOutside} visible={this.props.register_loading} text="This Will Only Take a Second..."/>
        <ErrorModal visible={this.state.errorModalVisibility} title={this.state.errorModalTitle} buttonText={this.state.errorModalButtonText} text={this.state.errorModalText} onTouchOutside={this.onErrorModalTouchOutside} onButtonClick={this.state.onErrorButtonClick}/>
-       {Platform.OS === 'ios' && <View style={{width: '100%', height: 20, backgroundColor: '#FF9E02'}} />}
-       <StatusBar backgroundColor="#FF9E02" barStyle="light-content" />
+       
+       {Platform.OS === 'ios' && <View style={{width: '100%', height: 24, backgroundColor: 'transparent'}} />}
+       {Platform.OS === 'ios' &&<StatusBar backgroundColor="transparent" barStyle="dark-content" />}
+       {Platform.OS === 'android' &&<StatusBar backgroundColor="#FF9E02" barStyle="light-content" />}
 
           
           <PaperProvider>
         <View style={{width: '100%', height: '100%', flex: 1}}>
-          
+        <TouchableOpacity onPress={() => this.loginGuest()} style={{right: 0, position: 'absolute', zIndex: 999, bottom: 0, paddingEnd: 24, paddingBottom: 16, flex: 1}}>
+            <Text style={{fontSize: 16, textAlign: 'center', fontFamily: 'Nunito-Regular',}}>Skip</Text>
+          </TouchableOpacity>
           <KeyboardAwareScrollView style={styles.main_container} keyboardShouldPersistTaps="always">
           
             <View style={styles.top_header}>
@@ -252,7 +256,7 @@ class SignUp extends React.Component {
                   <Icon name="chevron-left" size={24} color="#424242" />
                 </View>
               </TouchableOpacity>
-              <Text style={{fontFamily: 'Nunito-Bold', paddingStart: 24, fontSize: 23, paddingBottom: 3}}>Let's Set Up Your Account</Text>
+              <Text style={{fontFamily: 'NunitoSans-Black', paddingStart: 24, fontSize: 20, paddingBottom: 3}}>Let's Set Up Your Account</Text>
             </View>
           <Text style={{textAlign: 'center', fontFamily: 'Nunito-SemiBold', fontSize: 20, color: "#2C2C2C", marginBottom: 24, marginTop: -16}}>Continue with</Text>
             <View style={{flex: 2, flexDirection: 'row',alignItems: 'center', justifyContent: 'center'}}>
@@ -343,9 +347,7 @@ class SignUp extends React.Component {
                 </TouchableOpacity>
               </View>
             </View>
-            {this.state.is_skip_visibile && <TouchableOpacity onPress={() => this.loginGuest()} style={{right: 0, zIndex: 999, bottom: 0, paddingTop: 24, paddingBottom: 64, flex: 1}}>
-            <Text style={{fontSize: 16, textAlign: 'center', fontFamily: 'Nunito-Regular',}}>Skip</Text>
-          </TouchableOpacity>}
+            
           </KeyboardAwareScrollView>
           </View>
           </PaperProvider>
@@ -393,6 +395,7 @@ const styles = StyleSheet.create({
       backgroundColor: 'transparent',
       borderColor: '#FF9E02',
       borderWidth: 2,
+      marginBottom: 56,
       height: 50,
       justifyContent: 'center',
       borderRadius: 12,
@@ -423,7 +426,8 @@ const styles = StyleSheet.create({
         color: '#fff',
         paddingTop: 32,
         paddingStart: 24,
-        paddingEnd: 24
+        paddingEnd: 24,
+        marginBottom: 56,
     },
     headline_text: {
       color: '#fff',

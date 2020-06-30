@@ -116,8 +116,9 @@ class ForgotPassword extends React.Component {
           </Modal>
        <ErrorModal visible={this.state.errorModalVisibility} title={this.state.errorModalTitle} buttonText={this.state.errorModalButtonText} text={this.state.errorModalText} onTouchOutside={this.onErrorModalTouchOutside} onButtonClick={this.onErrorModalTouchOutside}/>
       
-       {Platform.OS === 'ios' && <View style={{width: '100%', height: 20, backgroundColor: '#FF9E02'}} />}
-      <StatusBar backgroundColor="#FF9E02" barStyle="light-content" />
+       {Platform.OS === 'ios' && <View style={{width: '100%', height: 24, backgroundColor: 'transparent'}} />}
+       {Platform.OS === 'ios' &&<StatusBar backgroundColor="transparent" barStyle="dark-content" />}
+       {Platform.OS === 'android' &&<StatusBar backgroundColor="#FF9E02" barStyle="light-content" />}
       <PaperProvider>
         <View style={{width: '100%', height: '100%'}}>
           <ScrollView style={styles.main_container} keyboardShouldPersistTaps="always">
@@ -127,7 +128,7 @@ class ForgotPassword extends React.Component {
                   <Icon name="chevron-left" size={24} color="#000" />
                 </View>
               </TouchableOpacity>
-              <Text style={{fontFamily: 'Nunito-Bold', fontSize: 23, color: '#000', width: '75%', textAlign: 'center'}}>
+              <Text style={{fontFamily: 'NunitoSans-Black', fontSize: 23, color: '#000', width: '75%', textAlign: 'center'}}>
                   Ran Into Trouble?
               </Text>
               <TouchableOpacity style={{width: '15%',}}>

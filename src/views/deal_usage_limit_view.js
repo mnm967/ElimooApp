@@ -167,7 +167,7 @@ const styles = StyleSheet.create(
 
     deal_title: {
       fontSize: 24,
-      fontFamily: 'Nunito-SemiBold',
+      fontFamily: 'NunitoSans-Black',
       textAlign: 'center'
     },
 

@@ -186,7 +186,7 @@ class DealStorePassword extends Component
             modalAnimation={new SlideAnimation({
                 slideFrom: 'bottom',
             })}>
-            <ModalContent style={{paddingTop: 0, paddingBottom: 0, width: 356}}>
+            <ModalContent style={{paddingTop: 0, paddingBottom: 0, width: 324}}>
             <View style={styles.main_container}>
               <View style={styles.main_holder}>
                 <Card onPress={() => { this.hideAccountModal()}} elevation={5} style={{width: 36, height: 36, borderRadius: 1000,  marginTop: 0, marginEnd: -20, position: 'absolute', zIndex: 999, right: 0}}>
@@ -237,7 +237,7 @@ class DealStorePassword extends Component
                         <TouchableOpacity onPress={() => {this.showAccountModal()}} style={{position: 'absolute', right: 0, marginEnd: 16}}>
                             <Card elevation={5} style={{width: 48, height: 48, alignItems: 'center', justifyContent: 'center', borderRadius: 1000, margin: 4}}>
                               <View style={styles.close_card}>
-                                <Icon name="account-card-details-outline" size={28} color="#FF9E02" />
+                                <Icon name="account-circle" size={28} color="#FF9E02" />
                               </View>
                             </Card>
                         </TouchableOpacity>
@@ -274,20 +274,19 @@ class DealStorePassword extends Component
                       <Text style={{marginTop: 2, fontSize: 16, textAlign: 'center', fontFamily: 'Nunito-SemiBold',}}>Enter Store Password</Text>
                     </View>
                 </KeyboardAwareScrollView>
-                <Animated.View style = {[ styles.animatedHeader, {marginTop: -20, height: headerHeight, backgroundColor: headerBackgroundColor } ]}>
+                <Animated.View style = {[ styles.animatedHeader, {marginTop: Platform.OS  == 'ios' ? -20:0, height: headerHeight, backgroundColor: headerBackgroundColor } ]}>
                     <FastImage style={{height: '100%', width: '100%', resizeMode: 'cover'}} source={{uri: this.props.deal['image_url']}}>
                     </FastImage>
                     <Animated.View style={{position: 'absolute', backgroundColor: headerBackgroundColor, top: 0, right: 0, left: 0, bottom: 0}}> 
                     </Animated.View>
                     <View style={{position: 'absolute', width: d.width-32, height: '100%'}}>
-                    <TouchableOpacity onPress={() => { goBack(null); goBack(null);}}>
                       <Card elevation={5} style={{width: 36, height: 36, borderRadius: 1000,  marginTop: 42, position: 'absolute'}}>
-                        
+                        <TouchableOpacity onPress={() => { goBack(null); goBack(null);}}>
                           <View style={{width: 36, height: 36, alignItems: 'center', justifyContent: 'center', borderRadius: 1000}}>
                             <Icon name="chevron-left" size={36} color="#424242" />
                           </View>
-                      </Card>
                         </TouchableOpacity>
+                      </Card>
                       {this.props.deal['deal_type'] == "Percentage Discount" && <View style={styles.percent_view}>
                     <Text style={{color: '#fff', fontFamily: 'Nunito-Bold', textAlign: 'center'}}>{this.props.deal['percentage']}%</Text>
                         </View>}
@@ -312,7 +311,7 @@ const styles = StyleSheet.create(
 
     deal_title: {
       fontSize: 24,
-      fontWeight: 'bold',
+      fontFamily: 'NunitoSans-Black',
       textAlign: 'center'
     },
 
