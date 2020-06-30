@@ -60,3 +60,4 @@ buck-out/
 # CocoaPods
 /ios/Pods/
 /android/java_pid3008.hprof
+/android/app/release
