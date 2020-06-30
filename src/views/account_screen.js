@@ -14,7 +14,7 @@ class MyAccountScreen extends React.Component {
   render() {
     return (
       <View style={styles.MainViewHolder}>
-        <StatusBar barStyle="light-content" backgroundColor="#FF9E02"/>
+        {Platform.OS === 'android' && <StatusBar barStyle="light-content" backgroundColor="#FF9E02"/>}
         <ScrollView showsHorizontalScrollIndicator={false} 
                     showsVerticalScrollIndicator={false}
                     style={{flex: 1}}>

@@ -157,7 +157,7 @@ class MyHomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.MainViewHolder}>
-        <StatusBar barStyle="light-content" backgroundColor="#FF9E02"/>
+        {Platform.OS === 'android' && <StatusBar barStyle="light-content" backgroundColor="#FF9E02"/>}
         <TouchableWithoutFeedback style={{width: "100%"}} onPress={() => this.props.openSearch()}>
           <View style={styles.search_header}>
             <Card elevation={12} borderRadius={12} style={{height: 48}} >
