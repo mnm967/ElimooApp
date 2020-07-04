@@ -1,55 +1,55 @@
 {
   "images" : [
     {
-      "filename" : "elimoo_icon40.png",
+      "filename" : "elimoo_logo40.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
-      "filename" : "elimoo_icon60.png",
+      "filename" : "elimoo_logo60.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "20x20"
     },
     {
-      "filename" : "elimoo_icon58.png",
+      "filename" : "elimoo_logo58-1.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
-      "filename" : "elimoo_icon87.png",
+      "filename" : "elimoo_logo87-1.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "29x29"
     },
     {
-      "filename" : "elimoo_icon80.png",
+      "filename" : "elimoo_logo80.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
-      "filename" : "elimoo_icon120.png",
+      "filename" : "elimoo_logo120.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "40x40"
     },
     {
-      "filename" : "elimoo_icon120-1.png",
+      "filename" : "elimoo_logo120-1.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
     },
     {
-      "filename" : "elimoo_icon180.png",
+      "filename" : "elimoo_logo180-1.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"
     },
     {
-      "filename" : "elimoo_icon1024.png",
+      "filename" : "elimoo_logo1024.png",
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"
