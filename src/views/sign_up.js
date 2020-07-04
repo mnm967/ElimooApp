@@ -260,18 +260,18 @@ class SignUp extends React.Component {
             </View>
           <Text style={{textAlign: 'center', fontFamily: 'Nunito-SemiBold', fontSize: 20, color: "#2C2C2C", marginBottom: 24, marginTop: -16}}>Continue with</Text>
             <View style={{flex: 2, flexDirection: 'row',alignItems: 'center', justifyContent: 'center'}}>
-              <Button labelStyle={{fontFamily: 'Nunito-SemiBold',}} onPress={() => this.props.navigation.navigate('Login')} style={[styles.social_button, {marginEnd: 16, marginStart: 4, backgroundColor: '#3B5998'}]} uppercase={false} mode="contained">
+              {false && <Button labelStyle={{fontFamily: 'Nunito-SemiBold',}} onPress={() => this.props.navigation.navigate('Login')} style={[styles.social_button, {marginEnd: 16, marginStart: 4, backgroundColor: '#3B5998'}]} uppercase={false} mode="contained">
                 Facebook
-              </Button>
-              <Button labelStyle={{fontFamily: 'Nunito-SemiBold',}} onPress={() => this.props.navigation.navigate('Login')} style={[styles.social_button, {marginStart: 16, marginEnd: 4, backgroundColor: '#4285F4'}]} uppercase={false} mode="contained">
+              </Button>}
+              {false && <Button labelStyle={{fontFamily: 'Nunito-SemiBold',}} onPress={() => this.props.navigation.navigate('Login')} style={[styles.social_button, {marginStart: 16, marginEnd: 4, backgroundColor: '#4285F4'}]} uppercase={false} mode="contained">
                 Google
-              </Button>
-              {false && <Button onPress={() => this.props.navigation.goBack()} style={[styles.social_button, {marginEnd: 16, marginStart: 4, backgroundColor: '#3B5998'}]} uppercase={false} icon="facebook" mode="contained">
+              </Button>}
+              <Button onPress={() => this.props.navigation.goBack()} style={[styles.social_button, {marginEnd: 16, marginStart: 4, backgroundColor: '#3B5998'}]} uppercase={false} icon="facebook" mode="contained">
                 Facebook
-              </Button>}
-              {false && <Button onPress={() => this.props.navigation.goBack()} style={[styles.social_button, {marginStart: 16, marginEnd: 4, backgroundColor: '#fff'}]} uppercase={false} color={'#2C2C2C'} labelStyle={{height: 26}} mode="contained">
-                <Image source={require('../assets/google-image.png')} style={{height: 20, width: 20, marginEnd: 16}}/><Text style={{color: '#2C2C2C'}}>     Google</Text>
-              </Button>}
+              </Button>
+              <Button onPress={() => this.props.navigation.goBack()} style={[styles.social_button, {marginStart: 16, marginEnd: 4, backgroundColor: '#fff'}]} uppercase={false} color={'#2C2C2C'} labelStyle={{height: 26}} mode="contained">
+                <Image resizeMode='contain' source={require('../assets/google-image.png')} style={{height: 20, width: 20, marginEnd: 16}}/><Text style={{color: '#2C2C2C'}}>     Google</Text>
+              </Button>
             </View>
             <Text style={{textAlign: 'center', fontFamily: 'Nunito-SemiBold', fontSize: 15, color: "#2C2C2C", marginTop: 18}}>or create an account</Text>
             <View style={{flex: 2, flexDirection: 'row',alignItems: 'center', justifyContent: 'center'}}>

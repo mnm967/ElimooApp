@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text } from 'react-native';
+import { Text, TouchableOpacity } from 'react-native';
 import Modal, { ModalButton, ModalContent, ModalFooter, ModalTitle, SlideAnimation } from 'react-native-modals';
 
 export default class ErrorModal extends React.Component {
@@ -11,11 +11,9 @@ export default class ErrorModal extends React.Component {
         onTouchOutside={onTouchOutside}
         footer={
           <ModalFooter>
-            <ModalButton
-              text={buttonText}
-              textStyle={{fontSize: 13, fontFamily: 'Nunito-SemiBold', color: '#FF9E02'}}
-              onPress={onButtonClick}
-            />
+            <TouchableOpacity style={{width: 356, height: 56, justifyContent: 'center', alignItems: 'center'}} onPress={onButtonClick}>
+              <Text style={{fontSize: 16, fontFamily: 'Nunito-SemiBold', color: '#FF9E02'}} >{buttonText}</Text>
+            </TouchableOpacity>
           </ModalFooter>
         }
         modalTitle={<ModalTitle textStyle={{fontFamily: 'Nunito-Bold',}} title={title} />}

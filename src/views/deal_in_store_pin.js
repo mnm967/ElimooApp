@@ -114,11 +114,9 @@ class DealInStorePin extends Component
               onTouchOutside={this.onErrorModalTouchOutside}
               footer={
                 <ModalFooter>
-                  <ModalButton
-                    text="Try Again"
-                    textStyle={{fontSize: 13, fontFamily: 'Nunito-SemiBold', color: '#FF9E02'}}
-                    onPress={this.onErrorModalTouchOutside}
-                  />
+                  <TouchableOpacity style={{width: 356, height: 56, justifyContent: 'center', alignItems: 'center'}} onPress={this.onErrorModalTouchOutside}>
+                    <Text style={{fontSize: 16, fontFamily: 'Nunito-SemiBold', color: '#FF9E02'}} >Try Again</Text>
+                  </TouchableOpacity>
                 </ModalFooter>
               }
               modalTitle={<ModalTitle textStyle={{fontFamily: 'Nunito-Bold',}} title="Wrong Pin Entered" />}

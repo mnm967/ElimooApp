@@ -292,18 +292,18 @@ class Login extends React.Component {
           <Text style={{fontFamily: 'NunitoSans-Black', textAlign: 'center', fontSize: 23, paddingBottom: 16, marginTop: 48}}>Welcome Back!</Text>
           <Text style={{textAlign: 'center', fontFamily: 'Nunito-SemiBold', fontSize: 20, color: "#2C2C2C", marginBottom: 24, }}>Continue with</Text>
             <View style={{flex: 2, flexDirection: 'row',alignItems: 'center', justifyContent: 'center'}}>
-              <Button labelStyle={{fontFamily: 'Nunito-SemiBold'}} onPress={() => this.signinFacebook()} style={[styles.social_button, {marginEnd: 16, marginStart: 4, backgroundColor: '#3B5998'}]} uppercase={false} mode="contained">
+              {false && <Button labelStyle={{fontFamily: 'Nunito-SemiBold'}} onPress={() => this.signinFacebook()} style={[styles.social_button, {marginEnd: 16, marginStart: 4, backgroundColor: '#3B5998'}]} uppercase={false} mode="contained">
                 Facebook
-              </Button>
-              <Button labelStyle={{fontFamily: 'Nunito-SemiBold',}} onPress={() => this.signInGoogle()} style={[styles.social_button, {marginStart: 16, marginEnd: 4, backgroundColor: '#4285F4'}]} uppercase={false} mode="contained">
+              </Button>}
+              {false && <Button labelStyle={{fontFamily: 'Nunito-SemiBold',}} onPress={() => this.signInGoogle()} style={[styles.social_button, {marginStart: 16, marginEnd: 4, backgroundColor: '#4285F4'}]} uppercase={false} mode="contained">
                 Google
-              </Button>
-              {false && <Button onPress={() => this.signinFacebook()} style={[styles.social_button, {marginEnd: 16, marginStart: 4, backgroundColor: '#3B5998'}]} uppercase={false} icon="facebook" mode="contained">
+              </Button>}
+              <Button onPress={() => this.signinFacebook()} style={[styles.social_button, {marginEnd: 16, marginStart: 4, backgroundColor: '#3B5998'}]} uppercase={false} icon="facebook" mode="contained">
                 Facebook
-              </Button>}
-              {false && <Button onPress={() => this.signInGoogle()} style={[styles.social_button, {marginStart: 16, marginEnd: 4, backgroundColor: '#fff'}]} uppercase={false} color={'#2C2C2C'} labelStyle={{height: 26}} mode="contained">
-                <Image source={require('../assets/google-image.png')} style={{height: 20, width: 20, marginEnd: 16}}/><Text style={{color: '#2C2C2C'}}>     Google</Text>
-              </Button>}
+              </Button>
+              <Button onPress={() => this.signInGoogle()} style={[styles.social_button, {marginStart: 16, marginEnd: 4, backgroundColor: '#fff'}]} uppercase={false} color={'#2C2C2C'} labelStyle={{height: 26}} mode="contained">
+                <Image resizeMode='contain' source={require('../assets/google-image.png')} style={{height: 20, width: 20, marginEnd: 16}}/><Text style={{color: '#2C2C2C'}}>     Google</Text>
+              </Button>
             </View>
             <Text style={{textAlign: 'center', fontFamily: 'Nunito-SemiBold', fontSize: 20, color: "#2C2C2C", marginTop: 18}}>or log in with</Text>
             <TextInput style={styles.username_input}

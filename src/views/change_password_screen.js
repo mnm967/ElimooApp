@@ -222,10 +222,10 @@ const styles = StyleSheet.create({
   },
   category_title: {
     fontSize: 32,
+    textAlign: 'center',
     fontFamily: 'NunitoSans-Black',
     paddingTop: 32,
     paddingBottom: 16,
-    paddingStart: 78
   },
   username_input: {
     backgroundColor: '#fafafa',

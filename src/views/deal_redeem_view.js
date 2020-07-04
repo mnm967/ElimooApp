@@ -66,7 +66,7 @@ class DealRedeemView extends Component
                       </View>
                     </View>
                     <View style={{padding: 16}}>
-                      <Text style={styles.deal_title}>{this.props.deal['name']}</Text>
+                      <Text style={styles.deal_title}>{this.props.deal['store_name']}</Text>
                       <Text style={{marginTop: 32, fontSize: 16, textAlign: 'center', fontFamily: 'Nunito-SemiBold',}}>Redemption Method</Text>
                       <View style={{flex: 1, flexDirection: 'row', alignSelf: 'center', paddingTop: 36}}>
                         <Card elevation={6} style={{borderRadius: 12, marginEnd: 18}}>

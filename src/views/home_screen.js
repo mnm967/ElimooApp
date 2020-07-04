@@ -308,7 +308,7 @@ class MyHomeScreen extends React.Component {
                                 <Card elevation={5} style={{width: 64, height: 64, alignItems: 'center', justifyContent: 'center', borderRadius: 1000,  margin: 8}}>
                                   <View style={{width: 64, height: 64, alignItems: 'center', justifyContent: 'center', borderRadius: 1000}}><Icon name="arrow-right" size={32} color="#FF9E02" /></View>
                                 </Card>
-                                <Text style={{fontSize: 20, color: '#FF9E02', fontFamily: 'Nunito-SemiBold', marginTop: 8}}>SEE{"\n"}MORE</Text>
+                                <Text style={{fontSize: 20, color: '#FF9E02', fontFamily: 'Nunito-SemiBold', marginTop: 8, textAlign: 'center'}}>SEE{"\n"}MORE</Text>
                               </TouchableOpacity>
                           </View>
                         );
@@ -340,7 +340,7 @@ class MyHomeScreen extends React.Component {
                                   <Card elevation={5} style={{width: 64, height: 64, alignItems: 'center', justifyContent: 'center', borderRadius: 1000,  margin: 8}}>
                                     <View style={{width: 64, height: 64, alignItems: 'center', justifyContent: 'center', borderRadius: 1000}}><Icon name="arrow-right" size={32} color="#FF9E02" /></View>
                                   </Card> 
-                                  <Text style={{fontSize: 20, color: '#FF9E02', fontFamily: 'Nunito-SemiBold', marginTop: 8}}>SEE{"\n"}MORE</Text>
+                                  <Text style={{fontSize: 20, color: '#FF9E02', fontFamily: 'Nunito-SemiBold', marginTop: 8, textAlign: 'center'}}>SEE{"\n"}MORE</Text>
                                 </TouchableOpacity>
                             </View>
                           );

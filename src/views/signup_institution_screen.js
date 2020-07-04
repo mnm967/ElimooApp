@@ -10,8 +10,17 @@ import LoadingModal from '../modals/loading_modal';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 const d = Dimensions.get("window");
-
+var kl1 = null;
+var kl2 = null;
 class SignUpInstitutionScreen extends React.Component {
+  componentDidMount(){
+    kl1 = Keyboard.addListener('keyboardDidShow', () => {this.setState({is_circle_visibile: false})});
+    kl2 = Keyboard.addListener('keyboardDidHide', () => {this.setState({is_circle_visibile: true})});
+  }
+  componentWillUnmount(){
+    kl1.remove();
+    kl2.remove();
+  }
   static getDerivedStateFromProps(nextProps, nextState) {
     if(nextProps.update_success == true){
       nextProps.clearUpdateSuccessVar();
@@ -75,6 +84,7 @@ class SignUpInstitutionScreen extends React.Component {
     errorModalText: '',
     errorModalButtonText: '',
     instituitionText: '',
+    is_circle_visibile: true,
     pendingScreenChange: 'SignUpStudentProofScreen',
     onErrorButtonClick: () => {this.setState({ errorModalVisibility: false });}
   };
@@ -88,7 +98,7 @@ class SignUpInstitutionScreen extends React.Component {
       <StatusBar backgroundColor="#FF9E02" barStyle="light-content" />
       <PaperProvider>
         <View style={{width: '100%', height: '100%', backgroundColor: '#FF9E02'}}>
-            <View style={{height: 296, width: 296, marginBottom: -168, marginStart: -148, backgroundColor: '#fff', borderRadius: 1000, position: 'absolute',  bottom: 0, left: 0}}/>
+            {this.state.is_circle_visibile && <View style={{height: 296, width: 296, marginBottom: -168, marginStart: -148, backgroundColor: '#fff', borderRadius: 1000, position: 'absolute',  bottom: 0, left: 0}}/>}
           <KeyboardAwareScrollView style={styles.main_container} keyboardShouldPersistTaps="always">
             <View style={styles.top_header}>
               {false && <TouchableOpacity style={{width: '10%', zIndex: 999}}>
@@ -96,7 +106,7 @@ class SignUpInstitutionScreen extends React.Component {
                   <Icon name="chevron-left" size={24} color="#fff" />
                 </View>
               </TouchableOpacity>}
-              <Text style={{fontFamily: 'NunitoSans-Black', fontSize: 26, color: '#fff', width: '85%', textAlign: 'center', paddingStart: 8}}>
+              <Text style={{fontFamily: 'NunitoSans-Black', fontSize: 22, color: '#fff', width: '85%', textAlign: 'center', paddingStart: 8}}>
                   Where do you Study?
               </Text>
               <TouchableOpacity style={{width: '15%',}}>
@@ -106,7 +116,7 @@ class SignUpInstitutionScreen extends React.Component {
               </TouchableOpacity>
             </View>
             <Text style={{textAlign: 'center', color: '#fff', fontFamily: 'Nunito-SemiBold', fontSize: 15}}>Let us know where you study and we’ll verify your student status</Text>
-            <TextInput style={{marginTop: 96, width: '100%', borderBottomColor: '#fff', borderBottomWidth: 2, color: '#fff', fontFamily: 'Nunito-Regular',}}
+              <TextInput style={{marginTop: 96, width: '100%', borderBottomColor: '#fff', borderBottomWidth: 2, color: '#fff', fontFamily: 'Nunito-Regular',}}
                   placeholder='Enter Your School/Instituition'
                   theme={{ colors: { text: 'white' } }}
                   value={this.state.instituitionText}

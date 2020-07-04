@@ -38,7 +38,7 @@ class MainApp extends React.Component{
       Deal: {screen: DealView,
         navigationOptions: {
             header: null
-        }
+        }, params: {mainNavigation: this.mainNavigation}
       },
       DealRedeem: {screen: DealRedeemView,
         navigationOptions: {

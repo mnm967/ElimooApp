@@ -161,11 +161,9 @@ class DealStorePassword extends Component
               onTouchOutside={this.onErrorModalTouchOutside}
               footer={
                 <ModalFooter>
-                  <ModalButton
-                    text="Try Again"
-                    textStyle={{fontSize: 13, fontFamily: 'Nunito-SemiBold', color: '#FF9E02'}}
-                    onPress={this.onErrorModalTouchOutside}
-                  />
+                  <TouchableOpacity style={{width: 356, height: 56, justifyContent: 'center', alignItems: 'center'}} onPress={this.onErrorModalTouchOutside}>
+                    <Text style={{fontSize: 16, fontFamily: 'Nunito-SemiBold', color: '#FF9E02'}} >Try Again</Text>
+                  </TouchableOpacity>
                 </ModalFooter>
               }
               modalTitle={<ModalTitle textStyle={{fontFamily: 'Nunito-Bold',}} title="Wrong Pin Entered" />}
@@ -189,11 +187,13 @@ class DealStorePassword extends Component
             <ModalContent style={{paddingTop: 0, paddingBottom: 0, width: 324}}>
             <View style={styles.main_container}>
               <View style={styles.main_holder}>
-                <Card onPress={() => { this.hideAccountModal()}} elevation={5} style={{width: 36, height: 36, borderRadius: 1000,  marginTop: 0, marginEnd: -20, position: 'absolute', zIndex: 999, right: 0}}>
-                    <View style={{width: 36, height: 36, alignItems: 'center', justifyContent: 'center', borderRadius: 1000}}>
-                      <Icon name="close" size={32} color="#424242" />
-                    </View>
-                </Card>
+                  <Card elevation={5} style={{width: 36, height: 36, borderRadius: 1000,  marginTop: 0, marginEnd: -20, position: 'absolute', zIndex: 999, right: 0}}>
+                      <TouchableOpacity onPress={() => { this.hideAccountModal()}}>
+                        <View style={{width: 36, height: 36, alignItems: 'center', justifyContent: 'center', borderRadius: 1000}}>
+                          <Icon name="close" size={32} color="#424242" />
+                        </View>
+                      </TouchableOpacity>
+                  </Card>
                 <FastImage source={require('../assets/elimoo-id-image.png')} resizeMode="contain" style={{height: 56, backgroundColor: 'transparent'}}/>
                 <FastImage source={this.state.imageURI} style={styles.profile_icon} />
                 <Text style={styles.subtitle_text} >{this.props.user['first_name']+" "+this.props.user['last_name']}</Text>
@@ -496,6 +496,7 @@ const styles = StyleSheet.create(
     height: 172,
     width: 172,
     borderWidth: 1,
+    borderColor: 'transparent',
     borderRadius: 16
   },
   log_in_button: {

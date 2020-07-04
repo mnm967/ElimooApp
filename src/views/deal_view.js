@@ -91,11 +91,16 @@ class DealView extends Component
                       <FastImage style={{zIndex: 8, resizeMode: 'cover', width: 84, height: 84}} source={{uri: this.props.deal['store_logo_url']}}/>
                     </View>
                     <View style={{padding: 16}}>
-                    <Text style={styles.deal_title}>{this.props.deal['name']}</Text>
+                    <Text style={styles.deal_title}>{this.props.deal['store_name']}</Text>
                       {this.props.deal['available_online'] && <Text style={styles.deal_prompt}>Available Online</Text>}
                       <Text style={{marginTop: 32, fontSize: 16, fontFamily: 'Nunito-Bold',}}>The Deal:</Text>
                       <Text style={{marginTop: 24, marginBottom: 32, fontSize: 16, fontFamily: 'Nunito-SemiBold',}}>{this.props.deal['description']}</Text>
                       {this.props.user['id'] != '--guest-user--' && <TouchableOpacity onPress={() => this.props.checkDealAvailability(this.props.user['id'], this.props.deal['id'])}><Button labelStyle={{textTransform: 'none', fontSize: 17, fontFamily: 'Nunito-SemiBold',}} color='#fff' style={styles.deal_button}>Get Discount</Button></TouchableOpacity>}
+                      {this.props.user['id'] === '--guest-user--' && <TouchableOpacity onPress={() => {
+                        if(Platform.OS != 'ios') StatusBar.setBackgroundColor('#FF9E02');
+                        if(Platform.OS != 'ios') StatusBar.setTranslucent(false);
+                        this.props.navigation.state.params.mainNavigation('MainLoginScreen');
+                        }}><Button labelStyle={{textTransform: 'none', fontSize: 17, fontFamily: 'Nunito-SemiBold',}} color='#fff' style={styles.deal_button}>Get Discount</Button></TouchableOpacity>}
                     </View>
                 </ScrollView>
                 <Animated.View style = {[ styles.animatedHeader, { height: headerHeight, backgroundColor: headerBackgroundColor } ]}>

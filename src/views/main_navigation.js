@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Dimensions, StatusBar, StyleSheet, Text, View, Platform } from 'react-native';
+import { Dimensions, StatusBar, StyleSheet, Text, View, Platform, TouchableOpacity } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { Card } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -165,11 +165,13 @@ onReceived(notification) {
             <ModalContent style={{paddingTop: 0, paddingBottom: 0, width: 324}}>
             <View style={styles.main_container}>
               <View style={styles.main_holder}>
-                <Card onPress={() => { this.hideAccountModal()}} elevation={5} style={{width: 36, height: 36, borderRadius: 1000,  marginTop: 0, marginEnd: -20, position: 'absolute', zIndex: 999, right: 0}}>
-                    <View style={{width: 36, height: 36, alignItems: 'center', justifyContent: 'center', borderRadius: 1000}}>
-                      <Icon name="close" size={32} color="#424242" />
-                    </View>
-                </Card>
+                  <Card elevation={5} style={{width: 36, height: 36, borderRadius: 1000,  marginTop: 0, marginEnd: -20, position: 'absolute', zIndex: 999, right: 0}}>
+                    <TouchableOpacity onPress={() => { this.hideAccountModal()}}>
+                      <View style={{width: 36, height: 36, alignItems: 'center', justifyContent: 'center', borderRadius: 1000}}>
+                        <Icon name="close" size={32} color="#424242" />
+                      </View>
+                    </TouchableOpacity>
+                  </Card>
                 {false && <Text style={styles.title_text}>ElimooID</Text>}
                 <FastImage source={require('../assets/elimoo-id-image.png')} resizeMode="contain" style={{height: 56, backgroundColor: 'transparent'}}/>
                 <FastImage source={this.state.imageURI} style={styles.profile_icon} />
@@ -289,6 +291,7 @@ const styles = StyleSheet.create({
     height: 172,
     width: 172,
     borderWidth: 1,
+    borderColor: 'transparent',
     borderRadius: 16
   },
   log_in_button: {

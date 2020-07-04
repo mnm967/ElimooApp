@@ -80,7 +80,7 @@ class WelcomeScreen extends React.Component {
           </View>
           <View style={{ height: '100%', width: '100%', position: 'absolute'}}>         
            <View style={{width: '100%', alignItems: 'center', paddingTop: 42}}>
-             <FastImage resizeMode="contain" source={require('../assets/elimoo-icon-welcome.png')} style={{width: 192, height: 192, backgroundColor: 'transparent'}}/>
+             <FastImage resizeMode="contain" source={require('../assets/elimoo-icon-welcome.png')} style={{width: 164, height: 164, backgroundColor: 'transparent'}}/>
            </View>
           </View>
           <View style={{width: "100%", position: 'absolute', bottom: 0, height: 236, padding: 16}}>
