@@ -21,14 +21,15 @@ class MyAccountScreen extends React.Component {
               <View style={styles.ViewHolder}>
                 <Text style={styles.main_title}>Account</Text>
                 <View>
-                  {false &&<TouchableOpacity onPress={() => this.props.openUserIDScreen()} style={styles.setting_item}>
-                    <View style={styles.setting_text_holder}>
-                      <Text style={styles.setting_text}>My ID</Text>
+                  <TouchableOpacity onPress={() => this.props.openUserIDScreen()} style={styles.setting_item}>
+                    <View style={[styles.setting_text_holder, {flex: 1, flexDirection: 'row', justifyContent: 'flex-start'}]}>
+                      <Text style={[styles.setting_text, {fontFamily: 'NunitoSans-Black', color: '#FF9E02'}]}>My Elimoo</Text>
+                      <Text style={[styles.setting_text, {fontFamily: 'NunitoSans-Black', color: '#000000'}]}>ID</Text>
                     </View>
                     <View style={styles.setting_icon_holder}>
-                      <Icon name="chevron-right" size={36} color="#000000" />
+                      <Icon name="chevron-right" size={36} color="#FF9E02" />
                     </View>
-                  </TouchableOpacity>}
+                  </TouchableOpacity>
                   <TouchableOpacity onPress={() => this.props.openSettingsScreen()} style={styles.setting_item}>
                     <View style={styles.setting_text_holder}>
                       <Text style={styles.setting_text}>Settings</Text>

@@ -197,8 +197,6 @@ class DealStorePassword extends Component
                 <FastImage source={require('../assets/elimoo-id-image.png')} resizeMode="contain" style={{height: 56, backgroundColor: 'transparent'}}/>
                 <FastImage source={this.state.imageURI} style={styles.profile_icon} />
                 <Text style={styles.subtitle_text} >{this.props.user['first_name']+" "+this.props.user['last_name']}</Text>
-                <Text style={styles.subtitle_text_grey}>Instituition</Text>
-                <Text style={styles.main_text_detail}>{this.props.user['instituition_name']}</Text>
                 <Text style={styles.subtitle_text_grey}>Expires</Text>
                 <Text style={styles.main_text_detail}>{(this.props.user['expiry_date'] == null 
                                                         || this.props.user['expiry_date'] == undefined) ?
@@ -465,8 +463,8 @@ const styles = StyleSheet.create(
   },
   subtitle_text: {
     color: '#000',
-    fontFamily: 'Nunito-Bold',
-    fontSize: 24,
+    fontFamily: 'NunitoSans-Black',
+    fontSize: 20,
     textAlign: 'center',
     marginTop: 36,
   },

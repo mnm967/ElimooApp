@@ -141,8 +141,8 @@ class SignUpPendingScreen extends React.Component {
             <Text style={{fontSize: 21, marginTop: 36, color: '#fff', fontFamily: 'NunitoSans-Black', textAlign: 'center'}}>Patience, patience & patience</Text>
             <View style={styles.main_container}>
               <View>
-                <FastImage style={{width: 96, height: 96, alignSelf: 'center', marginBottom: 28}} resizeMode='contain' source={require('../assets/elimoo-icon-white.png')}/>
-                <FastImage style={{width: 96, height: 96, alignSelf: 'center', marginBottom: 64}} source={require('../assets/user_card_icon.png')}/>
+                {false && <FastImage style={{width: 96, height: 96, alignSelf: 'center', marginBottom: 28}} resizeMode='contain' source={require('../assets/elimoo-icon-white.png')}/>}
+                <FastImage style={{width: 164, height: 164, alignSelf: 'center', marginBottom: 64, marginTop: 28}} source={require('../assets/user_card_icon.png')}/>
                 <Text style={{marginTop: 16, fontSize: 15, color: '#fff', fontFamily: 'Nunito-Regular', textAlign: 'center'}}>Your documentation will be reviewed within 48 hours and your account will be verified If everything checks out! Look out for a confirmation email & notification.</Text>
                 <TouchableOpacity onPress={() => {this.onContinueClick()}}>
                   <Button labelStyle={{fontFamily: 'Nunito-SemiBold',}} color='#FF9E02' uppercase={false} style={styles.sub_button}>Continue</Button>

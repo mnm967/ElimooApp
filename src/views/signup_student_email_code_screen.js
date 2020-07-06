@@ -4,7 +4,7 @@ import { Dimensions, Keyboard, ScrollView, StatusBar, StyleSheet, Text, TextInpu
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { NavigationActions, StackActions } from 'react-navigation';
 import { connect } from 'react-redux';
-import { clearEmailVerifyError, verifyUserInstituitionEmail } from '../actions/redux_actions';
+import { clearEmailVerifyError, verifyUserInstituitionEmail, resendUserVerificationEmail } from '../actions/redux_actions';
 import ErrorPrompts from '../constants/error_prompts';
 import ErrorModal from '../modals/error_modal';
 import LoadingModal from '../modals/loading_modal';
@@ -33,6 +33,7 @@ class SignUpStudentEmailCodeScreen extends React.Component {
       var error = nextProps.email_verify_error;
       var errorTitleText = 'Oh Oh! Something Went Wrong';
       var errorOutputText = '';
+      var errorModalButtonText = 'Try Again';
 
       if(error == 'network_error'){
         errorOutputText = ErrorPrompts.NETWORK_ERROR;
@@ -42,6 +43,10 @@ class SignUpStudentEmailCodeScreen extends React.Component {
         errorOutputText = "Sorry, this Pin has Expired. Please Go Back ann Enter Your Email to recieve a new Pin.";
       }else if(error == 'pin_not_found' || error == "pin_incorrect"){
         errorOutputText = "You've entered an incorrect pin. Please Try Again.";
+      }else if(error == 'resend_email_complete'){
+        errorModalButtonText = "Okay";
+        errorTitleText = 'Email Sent Successfully';
+        errorOutputText = "We've sent a new Verification Code to your Email.";
       }
 
       nextProps.clearEmailVerifyError();
@@ -50,7 +55,7 @@ class SignUpStudentEmailCodeScreen extends React.Component {
         errorModalTitle: errorTitleText, 
         errorModalText: errorOutputText,
         errorModalVisibility: true,
-        errorModalButtonText: 'Try Again' 
+        errorModalButtonText: errorModalButtonText 
       }
     }
 
@@ -151,23 +156,27 @@ class SignUpStudentEmailCodeScreen extends React.Component {
     }
   }
 
+  resendVerificationEmail = () => {
+    this.props.resendUserVerificationEmail(this.props.user['id']);
+  }
+
   render(){
     return (
       <>
-      <LoadingModal onTouchOutside={this.onLoadModalTouchOutside} visible={this.props.email_verify_loading} text="Verifying Code..."/>
+      <LoadingModal onTouchOutside={this.onLoadModalTouchOutside} visible={this.props.email_verify_loading} text="Processing..."/>
        <ErrorModal visible={this.state.errorModalVisibility} title={this.state.errorModalTitle} buttonText={this.state.errorModalButtonText} text={this.state.errorModalText} onTouchOutside={this.onErrorModalTouchOutside} onButtonClick={this.onErrorModalTouchOutside}/>
        {Platform.OS === 'ios' && <View style={{width: '100%', height: 20, backgroundColor: '#FF9E02'}} />}
       <StatusBar backgroundColor="#FF9E02" barStyle="light-content" />
         <View style={{width: '100%', height: '100%', backgroundColor: '#FF9E02'}}>
           <KeyboardAwareScrollView style={styles.main_container} keyboardShouldPersistTaps="always">
             <View style={styles.top_header}>
-              <TouchableOpacity onPress={() => {this.props.navigation.goBack()}} style={{width: '10%', zIndex: 999}}>
+              {false && <TouchableOpacity onPress={() => {this.props.navigation.goBack()}} style={{width: '10%', zIndex: 999}}>
                 <View style={{width: 24, height: 24, alignItems: 'center', justifyContent: 'center'}}>
                   <Icon name="chevron-left" size={24} color="#fff" />
                 </View>
-              </TouchableOpacity>
-              <Text style={{fontFamily: 'NunitoSans-Black', fontSize: 26, color: '#fff', width: '75%', textAlign: 'center'}}>
-                  Verify Via Email
+              </TouchableOpacity>}
+              <Text style={{fontFamily: 'NunitoSans-Black', fontSize: 26, color: '#fff', width: '85%', textAlign: 'center'}}>
+                  Verify Account
               </Text>
               <TouchableOpacity style={{width: '15%',}}>
                 <Text style={{fontSize: 13, fontFamily: 'Nunito-Regular', color: '#fff', textAlign: 'center', textDecorationLine: 'underline'}}>
@@ -175,8 +184,11 @@ class SignUpStudentEmailCodeScreen extends React.Component {
                 </Text>
               </TouchableOpacity>
             </View>
-            <Text style={{textAlign: 'center', fontFamily: 'Nunito-SemiBold', color: '#fff', fontSize: 16}}>Let us know where you study and we’ll verify your student status</Text>
-            <Text style={{textAlign: 'center', fontFamily: 'Nunito-Regular', color: '#fff', fontSize: 13, marginTop: 16, marginBottom: 32}}>Enter the 6-digit code sent to{'\n'}{this.props.user['instituition_email']}</Text>
+            <Text style={{textAlign: 'center', fontFamily: 'Nunito-SemiBold', color: '#fff', fontSize: 16}}>Just making sure you're human...</Text>
+            <Text style={{textAlign: 'center', fontFamily: 'Nunito-Regular', color: '#fff', fontSize: 13, marginTop: 16}}>Enter the 6-digit code sent to{'\n'}{this.props.user['instituition_email']}</Text>
+            <TouchableOpacity onPress={() => this.resendVerificationEmail()}>
+              <Text style={{textAlign: 'center', fontFamily: 'Nunito-Regular', color: '#fff', fontSize: 15, marginTop: 8, marginBottom: 32, textDecorationStyle: 'solid', textDecorationLine: 'underline'}}>Resend Code</Text>
+            </TouchableOpacity>
             <TextInput ref = {(numbers_input) => this.numbers_input = numbers_input} 
                 value={this.state.hiddenText} 
                 autoFocus={true} 
@@ -283,7 +295,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   verifyUserInstituitionEmail,
-  clearEmailVerifyError
+  clearEmailVerifyError,
+  resendUserVerificationEmail
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUpStudentEmailCodeScreen);

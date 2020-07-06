@@ -15,10 +15,9 @@ import LoadingModal from '../modals/loading_modal';
 const d = Dimensions.get("window");
 
 class SignUpStudentProofScreen extends React.Component {
-
   componentDidUpdate(prevProps, prevState){
     if(this.props.proof_upload_success == true){
-      var nextRoute = "SignUpPendingScreen";
+      var nextRoute = "SignUpStudentEmailCodeScreen";
       this.setState({}, () => {
         const resetAction = StackActions.reset({
           index: 0,
@@ -28,6 +27,7 @@ class SignUpStudentProofScreen extends React.Component {
       });
     }
   }
+
   static getDerivedStateFromProps(nextProps, nextState) {
     if(nextProps.proof_upload_success == true){
       // var nextRoute = 'SignUpPendingScreen';
@@ -88,7 +88,9 @@ class SignUpStudentProofScreen extends React.Component {
   openCameraPicker = () => {
     ImagePicker.openCamera({
       cropperToolbarColor: '#ffffff',
-      cropping: true
+      cropping: true,
+      compressImageMaxWidth: 856,
+      compressImageMaxHeight: 856,
     }).then(image => {
       var src = '';
       if (Platform.OS === 'android') {
@@ -127,7 +129,7 @@ class SignUpStudentProofScreen extends React.Component {
     return (
       <>
       
-      <LoadingModal onTouchOutside={this.onLoadModalTouchOutside} visible={this.props.proof_upload_loading} text="Uploading Student Proof..."/>
+      <LoadingModal onTouchOutside={this.onLoadModalTouchOutside} visible={this.props.proof_upload_loading} text="Uploading ID..."/>
        <ErrorModal visible={this.state.errorModalVisibility} title={this.state.errorModalTitle} buttonText={this.state.errorModalButtonText} text={this.state.errorModalText} onTouchOutside={this.onErrorModalTouchOutside} onButtonClick={this.state.onErrorButtonClick}/>
        {Platform.OS === 'ios' && <View style={{width: '100%', height: 20, backgroundColor: '#FF9E02'}} />}
       <StatusBar backgroundColor="#FF9E02" barStyle="light-content" />
@@ -137,13 +139,13 @@ class SignUpStudentProofScreen extends React.Component {
             <View style={{height: 296, width: 296, marginBottom: -168, marginStart: -198, backgroundColor: '#fff', borderRadius: 1000, position: 'absolute',  bottom: 0, left: 0}}/>
           <ScrollView style={styles.main_container} keyboardShouldPersistTaps="always">
             <View style={styles.top_header}>
-              <TouchableOpacity style={{width: '10%', zIndex: 999, backgroundColor: 'transparent'}} onPress={() => this.props.navigation.goBack()}>
+            {false && <TouchableOpacity style={{width: '10%', zIndex: 999, backgroundColor: 'transparent'}} onPress={() => this.props.navigation.goBack()}>
                 <View style={{width: 24, height: 24, alignItems: 'center', justifyContent: 'center'}}>
                   <Icon name="chevron-left" size={24} color="#fff" />
                 </View>
-              </TouchableOpacity>
-              <Text style={{fontFamily: 'NunitoSans-Black', fontSize: 26, color: '#fff', width: '75%', textAlign: 'center'}}>
-                  Upload Proof
+              </TouchableOpacity>}
+              <Text style={{fontFamily: 'NunitoSans-Black', fontSize: 26, color: '#fff', width: '85%', textAlign: 'center'}}>
+                Let’s see some ID
               </Text>
               <TouchableOpacity style={{width: '15%',}}>
                 <Text style={{fontSize: 13, fontFamily: 'Nunito-Regular', color: '#fff', textAlign: 'center', textDecorationLine: 'underline'}}>
@@ -151,8 +153,8 @@ class SignUpStudentProofScreen extends React.Component {
                 </Text>
               </TouchableOpacity>
             </View>
-            <Text style={{textAlign: 'center', fontFamily: 'Nunito-SemiBold', color: '#fff', fontSize: 16}}>Let us know where you study and we’ll verify your Student Status</Text>
-            <Text style={{textAlign: 'center', fontFamily: 'Nunito-Regular', color: '#fff', fontSize: 13, marginTop:16}}>You can upload your institutions photo ID, Academic transcript or acceptance letter</Text>
+            <Text style={{textAlign: 'center', fontFamily: 'Nunito-SemiBold', color: '#fff', fontSize: 16}}>This is our way of protecting you and our partners</Text>
+            <Text style={{textAlign: 'center', fontFamily: 'Nunito-Regular', color: '#fff', fontSize: 13, marginTop:16}}>Your ID will never be shared with our partners or anyone who uses Elimoo</Text>
             
             {this.state.imageVisible && <View style={{alignItems: 'center', marginTop: 24}}>
                 <View style={{backgroundColor: '#fff', paddingVertical: 18, paddingHorizontal: 36, borderRadius: 18}}>
@@ -191,12 +193,14 @@ class SignUpStudentProofScreen extends React.Component {
                 <View style={{borderWidth: 1, padding: 3, height: 24, width: 24, alignItems: 'center', borderRadius: 1000, borderColor: '#fff'}}>
                     <Icon name="info" size={16} color="#fff" />
                 </View>
+                
                 <Text style={{fontSize: 14, fontFamily: 'Nunito-Regular', color: '#fff', marginStart: 12, width: '90%'}}>
-                    Your identification should clearly show:{"\n"}{"\n"}
-                    {'\u2022'} Your full name{"\n"}
-                    {'\u2022'} Your age{"\n"}
-                    {'\u2022'} Your school's/institution's name{"\n"}
-                    {'\u2022'} Acceptance/Expiry Date{"\n"}
+                    You may add the following Government issued ID:{"\n"}{"\n"}
+                    {'\u2022'} Omang (ID){"\n"}
+                    {'\u2022'} Driver’s Licence{"\n"}
+                    {'\u2022'} Passport{"\n"}{"\n"}
+
+                    Hint: Your ID needs to be an official government- Issued ID (not an ID for a school, library, gym, etc.) that includes a photo of you.
                 </Text>
               </View>
             </View>

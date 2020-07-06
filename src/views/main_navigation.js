@@ -24,7 +24,7 @@ const guest = [
 const norm = [
   { key: 'home', title: 'Home', icon: 'home' },
   { key: 'favourites', title: 'Favourites', icon: 'bookmark-outline' },
-  { key: 'id', title: 'ID', icon: (props) => <FastImage {...props} source={require('../assets/endless-icon.png')} resizeMode='contain' style={{height: 25, width: 36,  backgroundColor: 'transparent'}}/> },
+  //{ key: 'id', title: 'ID', icon: (props) => <FastImage {...props} source={require('../assets/endless-icon.png')} resizeMode='contain' style={{height: 25, width: 36,  backgroundColor: 'transparent'}}/> },
   { key: 'notifications', title: 'Notifications', icon: 'email-outline' },
   { key: 'profile', title: 'Profile', icon: 'account-circle' },
 ];
@@ -35,7 +35,7 @@ class MainNavigation extends React.Component {
     if(this.props.user['id'] != '--guest-user--' && this.props.is_push_notifications_enabled == true){
       OneSignal.setSubscription(true);
       OneSignal.init("9986f240-b0ac-463b-816d-8ff06175b69b", {kOSSettingsKeyAutoPrompt : false, kOSSettingsKeyInAppLaunchURL: false, kOSSettingsKeyInFocusDisplayOption:2});
-      OneSignal.inFocusDisplaying(2); // Controls what should happen if a notification is received while the app is open. 2 means that the notification will go directly to the device's notification center.
+      OneSignal.inFocusDisplaying(2);
       
       if(Platform.OS === 'ios'){
         OneSignal.promptForPushNotificationsWithUserResponse((permission) => {
@@ -50,10 +50,10 @@ class MainNavigation extends React.Component {
       OneSignal.setSubscription(false);
     }
   }
-onReceived(notification) {
+  onReceived(notification) {
     if(NotificationHandler.notificationCallback != null && NotificationHandler.notificationCallback != undefined)
     NotificationHandler.notificationCallback();
-}
+  }
   state = {
     index: 0,
     routes: this.props.user['id'] == "--guest-user--" ? guest : norm,
@@ -85,9 +85,7 @@ onReceived(notification) {
     
   };
   openUserIDScreen = () => {
-    DropDownHolder.dropDown.closeAction();
-    const { navigate } = this.props.navigation;
-    navigate('UserIDScreen');
+    this.showAccountModal();
   };
   openPolicyScreen = (isTerms) => {
     DropDownHolder.dropDown.closeAction();
@@ -124,11 +122,7 @@ onReceived(notification) {
   
 
   _handleIndexChange = (index) => {
-    if(index != 2){
-      this.setState({ index })
-    }else{
-      this.showAccountModal();
-    }
+    this.setState({ index });
   };
   _renderScene = BottomNavigation.SceneMap({
     home: () => <HomeScreen openDeal={this.openDeal} openCategory={this.openCategory} openSearch={this.openSearch} openSpecialDealsScreen={this.openSpecialDealsScreen} openTopTipsScreen={this.openTopTipsScreen}/>,
@@ -176,8 +170,6 @@ onReceived(notification) {
                 <FastImage source={require('../assets/elimoo-id-image.png')} resizeMode="contain" style={{height: 56, backgroundColor: 'transparent'}}/>
                 <FastImage source={this.state.imageURI} style={styles.profile_icon} />
                 <Text style={styles.subtitle_text} >{this.props.user['first_name']+" "+this.props.user['last_name']}</Text>
-                <Text style={styles.subtitle_text_grey}>Instituition</Text>
-                <Text style={styles.main_text_detail}>{this.props.user['instituition_name']}</Text>
                 <Text style={styles.subtitle_text_grey}>Expires</Text>
                 <Text style={styles.main_text_detail}>{(this.props.user['expiry_date'] == null 
                                                         || this.props.user['expiry_date'] == undefined) ?
@@ -260,8 +252,8 @@ const styles = StyleSheet.create({
   },
   subtitle_text: {
     color: '#000',
-    fontFamily: 'Nunito-Bold',
-    fontSize: 24,
+    fontFamily: 'NunitoSans-Black',
+    fontSize: 20,
     textAlign: 'center',
     marginTop: 36,
   },

@@ -17,7 +17,7 @@ class SignUpSelfieScreen extends React.Component {
 
   componentDidUpdate(prevProps, prevState){
     if(this.props.selfie_upload_success == true){
-      var nextRoute = "SignUpInstitutionScreen";
+      var nextRoute = "SignUpStudentProofScreen";
       this.setState({}, () => {
         const resetAction = StackActions.reset({
           index: 0,
@@ -52,7 +52,6 @@ class SignUpSelfieScreen extends React.Component {
         errorModalButtonText: 'Try Again' 
       }
     }
-
     return null;
   }
 
@@ -75,8 +74,8 @@ class SignUpSelfieScreen extends React.Component {
   }
   openImagePicker = () => {
     ImagePicker.openPicker({
-      width: 256,
-      height: 256,
+      width: 356,
+      height: 356,
       cropperToolbarColor: '#ffffff',
       cropping: true
     }).then(image => {
@@ -91,8 +90,8 @@ class SignUpSelfieScreen extends React.Component {
   }
   openCameraPicker = () => {
     ImagePicker.openCamera({
-      width: 256,
-      height: 256,
+      width: 356,
+      height: 356,
       cropperToolbarColor: '#ffffff',
       cropping: true
     }).then(image => {

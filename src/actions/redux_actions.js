@@ -5,8 +5,8 @@ import LoginReduxTypes from '../constants/redux_login_types';
 import OneSignal from 'react-native-onesignal';
 import NotificationHandler from '../util/NotificationHandler';
 
-//const hostUrl = 'http://10.0.0.104:9999';
-const hostUrl = 'https://elimoo-test.herokuapp.com';
+const hostUrl = 'http://10.0.0.104:9999';
+//const hostUrl = 'https://elimoo-test.herokuapp.com';
 
 export const setCurrentActiveDeal = (deal) => {
     return (dispatch, getState) => {
@@ -316,6 +316,25 @@ export const verifyUserInstituitionEmail = (data) => {
             console.log("Response: ", res);
             if(res.data['status'] == 'success'){
                 dispatch(setUserEmailVerifySuccess(res.data['data']));
+            }else{
+                dispatch(setUserEmailVerifyError(res.data['message']));
+            }
+        })
+        .catch((err) => {
+            console.log('Axios: ', err);
+            dispatch(setUserEmailVerifyError('network_error'));
+        });
+    }
+};
+export const resendUserVerificationEmail = (userID) => {
+    return async (dispatch, getState) => {
+        dispatch(setUserEmailVerifyLoading(true));
+
+        axios.get(hostUrl+'/api/user/verify/resend_email/'+userID)
+        .then((res) => {
+            console.log("Response: ", res);
+            if(res.data['status'] == 'success'){
+                dispatch(setUserEmailVerifyError('resend_email_complete'));
             }else{
                 dispatch(setUserEmailVerifyError(res.data['message']));
             }
@@ -733,7 +752,7 @@ export const uploadStudentProofImage = (userId, imagePath, mimeType) => {
         
         axios({
             method: 'post',
-            url: hostUrl+'/api/user/student_proof_image/'+userId,
+            url: hostUrl+'/api/user/user_proof_image/'+userId,
             data: formData,
             headers: {'Content-Type': 'multipart/form-data' }
             })

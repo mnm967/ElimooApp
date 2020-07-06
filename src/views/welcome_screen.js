@@ -17,17 +17,13 @@ function getLoginRoute(user){
       user['profile_image_url'] == undefined ||
       user['profile_image_url'] == null){
         return 'SignUpSelfieScreen';
-  }else if(user['instituition_name'] == "" || 
-      user['instituition_name'] == undefined ||
-      user['instituition_name'] == null){
-        return 'SignUpInstitutionScreen';
   }else if((user['student_proof_image_url'] == "" || 
       user['student_proof_image_url'] == undefined ||
-      user['student_proof_image_url'] == null) &&
-      user['is_instituition_email_confirmed'] == false){
-        return 'SignUpInstitutionScreen';
-  }
-  else if(user['is_approved'] == false){
+      user['student_proof_image_url'] == null)){
+        return 'SignUpStudentProofScreen';
+  }else if(user['is_instituition_email_confirmed'] == false){
+    return 'SignUpStudentEmailCodeScreen';
+  }else if(user['is_approved'] == false){
         return 'MainAppScreen';
   }
 }

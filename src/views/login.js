@@ -26,17 +26,13 @@ function getLoginRoute(user){
       user['profile_image_url'] == undefined ||
       user['profile_image_url'] == null){
         return 'SignUpSelfieScreen';
-  }else if(user['instituition_name'] == "" || 
-      user['instituition_name'] == undefined ||
-      user['instituition_name'] == null){
-        return 'SignUpInstitutionScreen';
   }else if((user['student_proof_image_url'] == "" || 
       user['student_proof_image_url'] == undefined ||
-      user['student_proof_image_url'] == null) &&
-      user['is_instituition_email_confirmed'] == false){
+      user['student_proof_image_url'] == null)){
         return 'SignUpInstitutionScreen';
-  }
-  else if(user['is_approved'] == false){
+  }else if(user['is_instituition_email_confirmed'] == false){
+    return 'SignUpStudentEmailCodeScreen';
+  }else if(user['is_approved'] == false){
         return 'MainAppScreen';
   }
 }
@@ -272,7 +268,7 @@ class Login extends React.Component {
                   title={this.state.errorModalTitle} 
                   buttonText={this.state.errorModalButtonText} 
                   text={this.state.errorModalText} 
-                  onTouchOutside={this.onErrorModalTouchOutside} 
+                  onTouchOutside={this.onErrorModalTouchOutside}
                   onButtonClick={this.state.onErrorButtonClick}/>
 
         {Platform.OS === 'ios' && <View style={{width: '100%', height: 24, backgroundColor: 'transparent'}} />}
@@ -280,11 +276,6 @@ class Login extends React.Component {
        {Platform.OS === 'android' &&<StatusBar backgroundColor="#FF9E02" barStyle="light-content" />}
 
         <View style={{width: '100%', height: '100%'}}>
-          {false && <View style={{backgroundColor: '#FF9E02', height: 196}}>         
-           <View style={{height: '100%', justifyContent: 'center'}}>
-             <Image source={require('../assets/main-app-icon.png')} style={styles.app_icon}/>
-           </View>
-          </View>}
           <TouchableOpacity onPress={() => this.loginGuest()} style={{position: 'absolute', right: 0, zIndex: 99, paddingEnd: 32, paddingTop: 24, flex: 1}}>
             <Text style={{fontSize: 16, fontFamily: 'Nunito-Regular',}}>Skip</Text>
           </TouchableOpacity>
@@ -298,11 +289,25 @@ class Login extends React.Component {
               {false && <Button labelStyle={{fontFamily: 'Nunito-SemiBold',}} onPress={() => this.signInGoogle()} style={[styles.social_button, {marginStart: 16, marginEnd: 4, backgroundColor: '#4285F4'}]} uppercase={false} mode="contained">
                 Google
               </Button>}
-              <Button onPress={() => this.signinFacebook()} style={[styles.social_button, {marginEnd: 16, marginStart: 4, backgroundColor: '#3B5998'}]} uppercase={false} icon="facebook" mode="contained">
+              <Button onPress={() => this.signinFacebook()} style={[styles.social_button, {marginEnd: 16, marginStart: 4, backgroundColor: '#fff'}]} labelStyle={{color: '#2C2C2C'}} uppercase={false} 
+              icon={({ size, color }) => (
+                <Image
+                  source={require('../assets/facebook-image.png')}
+                  style={{ width: 19, height: 19 }}
+                />
+              )}
+              mode="contained">
                 Facebook
               </Button>
-              <Button onPress={() => this.signInGoogle()} style={[styles.social_button, {marginStart: 16, marginEnd: 4, backgroundColor: '#fff'}]} uppercase={false} color={'#2C2C2C'} labelStyle={{height: 26}} mode="contained">
-                <Image resizeMode='contain' source={require('../assets/google-image.png')} style={{height: 20, width: 20, marginEnd: 16}}/><Text style={{color: '#2C2C2C'}}>     Google</Text>
+              <Button onPress={() => this.signInGoogle()} style={[styles.social_button, {marginStart: 16, marginEnd: 4, backgroundColor: '#fff'}]} uppercase={false} labelStyle={{color: '#2C2C2C'}} 
+              icon={({ size, color }) => (
+                <Image
+                  source={require('../assets/google-image.png')}
+                  style={{ width: 19, height: 19 }}
+                />
+              )}
+              mode="contained">
+                Google
               </Button>
             </View>
             <Text style={{textAlign: 'center', fontFamily: 'Nunito-SemiBold', fontSize: 20, color: "#2C2C2C", marginTop: 18}}>or log in with</Text>
@@ -370,7 +375,7 @@ const styles = StyleSheet.create({
       textTransform: "capitalize"
     },
     social_button: {
-      height: 56, 
+      height: 48, 
       justifyContent: 'center', 
       flex: 1,
       borderRadius: 5,
