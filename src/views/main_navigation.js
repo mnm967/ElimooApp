@@ -284,7 +284,7 @@ const styles = StyleSheet.create({
     width: 172,
     borderWidth: 1,
     borderColor: 'transparent',
-    borderRadius: 16
+    borderRadius: 25
   },
   log_in_button: {
     alignSelf: 'center',
