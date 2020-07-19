@@ -63,7 +63,7 @@ class WelcomeScreen extends React.Component {
     return (
       <>
       {Platform.OS === 'android' && <StatusBar backgroundColor="#FF9E02" barStyle="light-content" />}
-      {Platform.OS === 'ios' && <StatusBar backgroundColor="transparent" barStyle="dark-content" />}
+      {Platform.OS === 'ios' && <StatusBar backgroundColor="transparent" barStyle="light-content" />}
         <View style={{width: '100%', height: '100%'}}>
         <View style={{overflow: 'hidden'}}>
           <FastImage style={{height: '100%', resizeMode: 'cover'}} source={require('../assets/welcome.png')}>
@@ -76,7 +76,7 @@ class WelcomeScreen extends React.Component {
           </View>
           <View style={{ height: '100%', width: '100%', position: 'absolute'}}>         
            <View style={{width: '100%', alignItems: 'center', paddingTop: 42}}>
-             <FastImage resizeMode="contain" source={require('../assets/elimoo-icon-welcome.png')} style={{width: 96, height: 96, backgroundColor: 'transparent'}}/>
+             <FastImage resizeMode="contain" source={require('../assets/elimoo-icon-welcome.png')} style={{width: 96, height: 96, backgroundColor: 'transparent', marginTop: 16}}/>
            </View>
           </View>
           <View style={{width: "100%", position: 'absolute', bottom: 0, height: 236, padding: 16}}>
