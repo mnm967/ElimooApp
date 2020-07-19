@@ -5,8 +5,8 @@ import LoginReduxTypes from '../constants/redux_login_types';
 import OneSignal from 'react-native-onesignal';
 import NotificationHandler from '../util/NotificationHandler';
 
-const hostUrl = 'http://10.0.0.104:9999';
-//const hostUrl = 'https://elimoo-test.herokuapp.com';
+//const hostUrl = 'http://10.0.0.104:9999';
+const hostUrl = 'https://elimoo-test.herokuapp.com';
 
 export const setCurrentActiveDeal = (deal) => {
     return (dispatch, getState) => {

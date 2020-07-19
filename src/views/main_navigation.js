@@ -167,7 +167,7 @@ class MainNavigation extends React.Component {
                     </TouchableOpacity>
                   </Card>
                 {false && <Text style={styles.title_text}>ElimooID</Text>}
-                <FastImage source={require('../assets/elimoo-id-image.png')} resizeMode="contain" style={{height: 56, backgroundColor: 'transparent'}}/>
+                <FastImage source={require('../assets/elimoo-id-image.png')} resizeMode="contain" style={{height: 56, backgroundColor: 'transparent', marginTop: 8}}/>
                 <FastImage source={this.state.imageURI} style={styles.profile_icon} />
                 <Text style={styles.subtitle_text} >{this.props.user['first_name']+" "+this.props.user['last_name']}</Text>
                 <Text style={styles.subtitle_text_grey}>Expires</Text>

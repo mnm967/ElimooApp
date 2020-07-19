@@ -5,9 +5,9 @@
         android:drawable="@color/black"/>
 
     <item
-        android:width="200dp"
-        android:height="200dp"
-        android:drawable="@drawable/elimoo_hi_res"
+        android:width="296dp"
+        android:height="97dp"
+        android:drawable="@drawable/elimoo_splash"
         android:gravity="center" />
 
 </layer-list>
