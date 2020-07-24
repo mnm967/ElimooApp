@@ -199,7 +199,7 @@ class SignUpStudentEmailCodeScreen extends React.Component {
                   nativeEvent.key === 'Backspace' ? this.deletePinValue() : 0;
                 }}/>
             <TouchableOpacity style={{alignSelf: 'center', flex: 1, flexDirection: 'row'}} onPress={()=>this.numbers_input.focus()}>
-                <View style={styles.pin_holder}>
+                <View style={[styles.pin_holder, {marginStart: 0}]}>
                   <Text style={styles.pin_text}>{this.state.pin_value1}</Text>
                 </View>
                 <View style={styles.pin_holder}>
@@ -214,7 +214,7 @@ class SignUpStudentEmailCodeScreen extends React.Component {
                 <View style={styles.pin_holder}>
                   <Text style={styles.pin_text}>{this.state.pin_value5}</Text>
                 </View>
-                <View style={styles.pin_holder}>
+                <View style={[styles.pin_holder, {marginEnd: 0}]}>
                   <Text style={styles.pin_text}>{this.state.pin_value6}</Text>
                 </View>
               </TouchableOpacity>
@@ -273,9 +273,11 @@ const styles = StyleSheet.create({
     pin_holder: {
       backgroundColor: '#00000040', 
       borderRadius: 12, 
-      width: 48, 
+      width: "12%",
+      maxWidth: 48,
       height: 56, 
-      marginHorizontal: 6,
+      marginStart: 6,
+      marginEnd: 6,
       justifyContent: 'center',
       alignItems: 'center'
     },
