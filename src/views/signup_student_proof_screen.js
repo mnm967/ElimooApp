@@ -25,6 +25,8 @@ class SignUpStudentProofScreen extends React.Component {
         });
         this.props.navigation.dispatch(resetAction);
       });
+
+      this.props.clearProofError();
     }
   }
 

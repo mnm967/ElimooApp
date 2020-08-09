@@ -14,6 +14,7 @@ import ForgotPassword from '../views/forgot_password';
 import getSlideFromRightTransition from 'react-navigation-slide-from-right-transition';
 import { connect } from 'react-redux';
 import { stopAllLoading } from '../actions/redux_actions';
+import PolicyScreen from '../views/policy_screen';
 
 class MainLoginScreen extends React.Component{
     static getDerivedStateFromProps(nextProps, nextState) {
@@ -73,6 +74,11 @@ class MainLoginScreen extends React.Component{
               }, params: {mainNavigation: this.mainNavigation}
           },
       ForgotPassword: {screen: ForgotPassword, 
+              navigationOptions: {
+                  header: null
+              }
+          },
+        PolicyScreen: {screen: PolicyScreen, 
               navigationOptions: {
                   header: null
               }

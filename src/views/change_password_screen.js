@@ -226,6 +226,7 @@ const styles = StyleSheet.create({
     fontFamily: 'NunitoSans-Black',
     paddingTop: 32,
     paddingBottom: 16,
+    paddingStart: 32
   },
   username_input: {
     backgroundColor: '#fafafa',

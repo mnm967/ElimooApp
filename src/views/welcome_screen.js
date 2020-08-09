@@ -20,9 +20,9 @@ function getLoginRoute(user){
   }else if((user['student_proof_image_url'] == "" || 
       user['student_proof_image_url'] == undefined ||
       user['student_proof_image_url'] == null)){
-        return 'SignUpStudentProofScreen';
+        return 'SignUpSelfieScreen';
   }else if(user['is_instituition_email_confirmed'] == false){
-    return 'SignUpStudentEmailCodeScreen';
+    return 'SignUpSelfieScreen';
   }else if(user['is_approved'] == false){
         return 'MainAppScreen';
   }

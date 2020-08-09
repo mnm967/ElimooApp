@@ -187,13 +187,13 @@ class DealStorePassword extends Component
             <ModalContent style={{paddingTop: 0, paddingBottom: 0, width: 324}}>
             <View style={styles.main_container}>
               <View style={styles.main_holder}>
-                  <Card elevation={5} style={{width: 36, height: 36, borderRadius: 1000,  marginTop: 0, marginEnd: -20, position: 'absolute', zIndex: 999, right: 0}}>
-                      <TouchableOpacity onPress={() => { this.hideAccountModal()}}>
-                        <View style={{width: 36, height: 36, alignItems: 'center', justifyContent: 'center', borderRadius: 1000}}>
-                          <Icon name="close" size={32} color="#424242" />
-                        </View>
-                      </TouchableOpacity>
+                <TouchableOpacity style={{marginEnd: -20, position: 'absolute', zIndex: 9999,  right: 0}} onPress={() => { this.hideAccountModal()}}>
+                  <Card elevation={5} style={{width: 36, height: 36, borderRadius: 1000,  marginTop: 0}}>
+                      <View style={{width: 36, height: 36, alignItems: 'center', justifyContent: 'center', borderRadius: 1000}}>
+                        <Icon name="close" size={32} color="#424242" />
+                      </View>
                   </Card>
+                </TouchableOpacity>
                 <FastImage source={require('../assets/elimoo-id-image.png')} resizeMode="contain" style={{height: 56, backgroundColor: 'transparent', marginTop: 8}}/>
                 <FastImage source={this.state.imageURI} style={styles.profile_icon} />
                 <Text style={styles.subtitle_text} >{this.props.user['first_name']+" "+this.props.user['last_name']}</Text>
@@ -491,8 +491,8 @@ const styles = StyleSheet.create(
   profile_icon: {
     marginTop: 36,
     alignSelf: 'center',
-    height: 172,
-    width: 172,
+    height: 196,
+    width: 196,
     borderWidth: 1,
     borderColor: 'transparent',
     borderRadius: 25

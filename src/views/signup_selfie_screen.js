@@ -25,6 +25,8 @@ class SignUpSelfieScreen extends React.Component {
         });
         this.props.navigation.dispatch(resetAction);
       });
+
+      this.props.clearSelfieError();
     }
   }
 

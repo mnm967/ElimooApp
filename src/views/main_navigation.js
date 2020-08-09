@@ -159,13 +159,13 @@ class MainNavigation extends React.Component {
             <ModalContent style={{paddingTop: 0, paddingBottom: 0, width: 324}}>
             <View style={styles.main_container}>
               <View style={styles.main_holder}>
-                  <Card elevation={5} style={{width: 36, height: 36, borderRadius: 1000,  marginTop: 0, marginEnd: -20, position: 'absolute', zIndex: 999, right: 0}}>
-                    <TouchableOpacity onPress={() => { this.hideAccountModal()}}>
+                <TouchableOpacity style={{marginEnd: -20, position: 'absolute', zIndex: 9999,  right: 0}} onPress={() => { this.hideAccountModal()}}>
+                  <Card elevation={5} style={{width: 36, height: 36, borderRadius: 1000,  marginTop: 0}}>
                       <View style={{width: 36, height: 36, alignItems: 'center', justifyContent: 'center', borderRadius: 1000}}>
                         <Icon name="close" size={32} color="#424242" />
                       </View>
-                    </TouchableOpacity>
                   </Card>
+                </TouchableOpacity>
                 {false && <Text style={styles.title_text}>ElimooID</Text>}
                 <FastImage source={require('../assets/elimoo-id-image.png')} resizeMode="contain" style={{height: 56, backgroundColor: 'transparent', marginTop: 8}}/>
                 <FastImage source={this.state.imageURI} style={styles.profile_icon} />

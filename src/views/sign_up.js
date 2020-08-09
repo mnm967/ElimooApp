@@ -353,7 +353,26 @@ class SignUp extends React.Component {
                 </View>
               </TouchableOpacity>
             </View>
+
             {this.state.formInputErrorVisible && <Text style={styles.input_error} visible>{this.state.formInputError}</Text>}
+
+            <Text style={[styles.terms_black_text, {marginTop: 36}]}>
+            By clicking next, you agree to Elimoo’s
+            </Text>
+            <TouchableOpacity onPress={() => {this.props.navigation.navigate("PolicyScreen", {isTerms: true})}}>
+              <Text style={styles.terms_orange_text}>
+                Terms and conditions of use{"\n"}
+              </Text>
+            </TouchableOpacity>
+            <Text style={styles.terms_black_text}>
+            To learn more about how Elimoo collects, uses, shares And protects your personal data please read our
+            </Text>
+            <TouchableOpacity onPress={() => {this.props.navigation.navigate("PolicyScreen", {isTerms: false})}}>
+              <Text style={[styles.terms_orange_text, {marginBottom: 0}]}>
+                Privacy Policy
+              </Text>
+            </TouchableOpacity>
+
             <View style={{justifyContent: 'center', marginTop: 24}}>
               <View style={{ alignSelf:'center', width: '100%'}}>
                 <TouchableOpacity onPress={() => this.onNextClick()}>
@@ -527,7 +546,19 @@ const styles = StyleSheet.create({
       padding: 4,
       borderRadius: 8,
       width: '100%'
-    }
+    },
+    terms_black_text: {
+      color: '#000000',
+      fontFamily: 'Nunito-Regular',
+      fontSize: 16,
+      textAlign: 'center'
+    },
+    terms_orange_text: {
+      color: '#FF9E02',
+      fontFamily: 'Nunito-SemiBold',
+      fontSize: 16,
+      textAlign: 'center'
+    },
 });
 
 const mapStateToProps = state => ({
