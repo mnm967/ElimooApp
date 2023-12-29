@@ -1,6 +1,6 @@
 # Elimoo App
 
-Elimoo is an app based in South Africa that combines the power of React Native (and Redux), NodeJS and MongoDB to create a cross-platform solution. With Elimoo, users can enjoy exclusive deals for local and online stores, with a wide range of stores to choose from, there is sure to be a deal that meets every customer's needs.
+Elimoo combines the power of React Native (and Redux), NodeJS and MongoDB to create a cross-platform solution. With Elimoo, users can enjoy exclusive deals for local and online stores, with a wide range of stores and restaurants to choose from.
 
 # Screenshots
 
